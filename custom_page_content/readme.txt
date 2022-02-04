@@ -1,0 +1,1 @@
+EN: Don't delete any data from here. This files is for custom pages, which you create from admin area!

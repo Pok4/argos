@@ -1,0 +1,36 @@
+{{#no_sliders}}
+
+{{/no_sliders}}
+{{^no_sliders}}
+<div id='slidebox'>
+			<div class='inner'>
+      <div class='left'><div></div></div>
+				<div class='right'><div></div></div>
+				<div class='images'>
+      {{#get_sliders}}
+ 
+        {{#slider_is_link}}
+					<div class='slideImage'>
+						<a href='{{slider_link}}' target="_blank"><img src='{{slider_img}}' alt='{{slider_text}}' /></a>
+					</div>
+        {{/slider_is_link}}
+        {{^slider_is_link}}
+					<div class='slideImage'>
+						<img src='{{slider_img}}' alt='{{slider_text}}' />
+					</div>              
+        {{/slider_is_link}}
+ 
+     {{/get_sliders}}
+     				 
+        </div>
+        <div class='caption_slider'></div>
+			</div>
+</div>
+{{/no_sliders}}
+
+{{&template_event_after_slider}}
+
+<!-- main -->
+<div class="main_cont">
+  
+ 

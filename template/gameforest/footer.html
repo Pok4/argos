@@ -1,0 +1,96 @@
+ 
+</div> <!-- end container -->
+
+  {{&template_event_before_footer}}
+	<!-- footer -->
+	<footer>
+		<div class="container">
+			<div class="widget row">
+				<div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
+					<h4 class="title">Info</h4>
+					 {{online_users}} {{lang_registered_stats}} {{online_users_anonymous}} {{lang_guests}}  [ <a href="{{forum_path}}/viewonline.php" target="_blank">{{lang_full_list}}</a> ]<br/>
+          {{lang_groups}}: {{#group_users}} <span class="group_users" style="color: #{{group_colors}}">{{group_names}}</span> {{/group_users}}
+				</div>
+					
+				<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12 hidden-xs">
+					<h4 class="title">{{lang_acp_stats}}</h4>
+					<div class="row">
+						<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">	
+							<ul class="nav">
+                <li>{{lang_posts_stats}}</li>
+                <li>{{lang_views_stats}}</li>
+                <li>{{lang_users_stats}}</li>
+                <li>{{lang_topics_sm}}</li>
+                <li>{{lang_cats_stats}}</li>
+							</ul>
+						</div>
+						<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+							<ul class="nav">
+                <li>{{total_posts}}</li>
+                <li>{{total_topics_views}}</li>
+                <li>{{total_users}}</li>
+                <li>{{total_topics}}</li>
+                <li>{{total_forums}}</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+		
+				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                <div id="fb-root"></div>
+								<script>(function(d, s, id) {
+								  var js, fjs = d.getElementsByTagName(s)[0];
+								  if (d.getElementById(id)) return;
+								  js = d.createElement(s); js.id = id;
+								  js.src = "http://connect.facebook.net/en-GB/sdk.js#xfbml=1&version=v2.5";
+								  fjs.parentNode.insertBefore(js, fjs);
+								}(document, 'script', 'facebook-jssdk'));</script>
+								<div class="fb-page" data-href="https://www.facebook.com/dedihost.org" data-height="800" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true" data-show-posts="false"><div class="fb-xfbml-parse-ignore"></div></div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="footer-bottom">
+			<div class="container">	
+				<ul class="list-inline">
+					<li><a href="{{&tw_link}}" class="btn btn-circle btn-social-icon" data-toggle="tooltip" title="Follow us on Twitter"><i class="fa fa-twitter"></i></a></li>
+					<li><a href="{{&fb_link}}" class="btn btn-circle btn-social-icon" data-toggle="tooltip" title="Follow us on Facebook"><i class="fa fa-facebook"></i></a></li>
+					<li><a href="{{&goo_link}}" class="btn btn-circle btn-social-icon" data-toggle="tooltip" title="Follow us on Google"><i class="fa fa-google-plus"></i></a></li>
+					
+				</ul>
+				  {{lang_design_from}}: <a href="#">val4o0o0</a> <i class="fa fa-copyright"></i> &copy; {{lang_allrights}} 2013-{{current_year}}.
+			</div>
+		</div>
+	</footer>	
+	<!-- /.footer -->
+  
+  {{&template_event_after_footer}}
+  
+</div> <!-- end wrapper -->
+ 
+ 
+<div class="scroll-btn"><div class="scroll-btn-arrow"></div></div>
+
+<script type="text/javascript" src="{{baseurl}}/template/{{current_style}}/js/globals.js"></script>
+<script type="text/javascript" src="{{baseurl}}/template/{{current_style}}/js/head_ready.js"></script>
+
+<script>head.ready(function () { {{&jquery_js}} {{&template_event_inside_head_ready_front}} });</script>
+
+{{#all_custom_pages}}
+<div id="cd-nav" class="cd-nav">
+		<div class="cd-navigation-wrapper">
+			<div class="cd-half-block">
+				<h2>Menu</h2>
+				<nav>
+					<ul class="cd-primary-nav">
+						{{&all_custom_pages}}
+					</ul>
+				</nav>
+        {{&template_event_inside_multipurpose_menu}}
+			</div>
+		</div>
+</div>
+{{/all_custom_pages}}
+	
+</body>
+</html>

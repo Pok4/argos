@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<!-- created by dedihost.org -->
+<html lang="en">
+  <head>
+    {{> meta }}
+  </head>
+<body class="skin-default">
+{{> header }}
+    
+{{> sidebar }}
+    
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+      <!-- Content Header (Page header) -->
+      <section class="content-header">
+        <h1>
+          {{lang_acp_videos_page_info}}
+        </h1>
+        <hr class="border_acp"/>
+        
+        <div class='row'>
+          <div class='col-md-12'>
+            
+            <div class="box box-danger">
+              <div class="box-header with-border">
+                <h3 class="box-title">{{lang_acp_videos_page_info}}</h3>
+              </div>
+              <div class="box-body">		   
+              
+                {{^acp_edit_videos_id}}
+                  <div class="alert alert-warning">{{lang_acp_video_page_about}}</div>
+                  <table class="table table-striped">
+                    <tr>
+                      <th>{{lang_acp_video_name_of_video}}</th>
+                      <th>{{lang_acp_link}}</th>
+                      <th>{{lang_acp_video_approve_disapprove}}</th>
+                      <th>{{lang_acp_delete}}</th>
+                    </tr>
+                    {{#allvideos}}
+                    <tr class="video-{{video_id}}">
+                      <td><a href="edit_videos.php?id={{video_id}}">{{video_title}}</a></td>
+                      <td>
+                        <a target="_blank" href="{{video_link}}">{{lang_acp_video_link_to_video}}</a>
+                      </td>
+                      <td>{{&video_approved}}</td>
+                      <td><a href="ajax/remove_video/?id={{video_id}}" class="delete_video" style="color:red"><i class="fa fa-times"></i></a></td>
+                    </tr>
+                    {{/allvideos}}
+                  </table>
+                {{&no_have_videos}}
+                {{&pagination_videos}}
+              {{/acp_edit_videos_id}}
+              {{#acp_edit_videos_id}}
+              <a href="edit_videos.php" class="btn btn-xs btn-success"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>
+              <br/><br/>
+              
+              <iframe src="{{acp_edit_videos_vlink}}" style="border:0;width:60%;height:315px;" allowfullscreen></iframe>
+
+              <form role="form" method="post">
+
+                 <div class="form-group">
+                    <b>{{lang_uploader}}</b>
+                    <input type="text" class="form-control"  value="{{acp_edit_videos_uploader}}" style="max-width:200px" name="uploader" required>
+                 </div>
+
+
+                 {{lang_video_cats_current_cat}}: <b>{{acp_edit_videos_curcat}}</b><br/>
+                 {{lang_video_cats_change_cat}}:<br/>
+                 <select name="cat">
+                 {{&acp_edit_videos_all_cats}}
+                 </select>
+                 <br/><br/>
+
+                 <button type="submit" name="acp_edit_videos_submit" class="btn btn-success">{{lang_acp_edit}}</button>
+              </form>
+              <br/>
+              {{&acp_edit_videos_submit}}              
+              {{/acp_edit_videos_id}}
+              
+              
+              </div>
+            </div>
+          </div>
+        </div>
+              
+              
+        <ol class="breadcrumb">
+            <li><a href="index.php"><i class="fa fa-dashboard"></i> Admin</a></li>
+            <li class="active">{{lang_acp_videos_page_info}}</li>
+          </ol>
+      </section>
+              
+              
+</div><!-- /.content-wrapper -->
+              
+{{> footer }}              

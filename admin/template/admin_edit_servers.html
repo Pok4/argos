@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<!-- created by dedihost.org -->
+<html lang="en">
+  <head>
+    {{> meta }}
+  </head>
+<body class="skin-default">
+{{> header }}
+    
+{{> sidebar }}
+    
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+      <!-- Content Header (Page header) -->
+      <section class="content-header">
+        <h1>
+          {{lang_acp_servers_edit_page_info}}
+        </h1>
+        <hr class="border_acp"/>
+        
+        <div class='row'>
+          <div class='col-md-12'>
+            
+            <div class="box box-danger">
+              <div class="box-header with-border">
+                <h3 class="box-title">{{lang_acp_servers_edit_page_about}}</h3>
+              </div>
+              <div class="box-body">		   
+                
+                {{^acp_edit_servers_id}}
+                  <table class="table table-striped">
+                    <tr>
+                      <th>{{lang_acp_name}}</th>
+                      <th>IP</th>
+                      <th>{{lang_map}}</th>
+                      <th>{{lang_acp_game}}</th>
+                      <th>{{lang_acp_delete}}</th>
+                      
+                    </tr>
+                    {{#allservers}}
+                    <tr class="server-{{server_id}}">
+                      <td><a href="edit_servers.php?id={{server_id}}">{{server_name}}</a></td>
+                      <td>
+                        {{server_ip}}
+                      </td>
+                      <td>{{server_map}}</td>
+                      <td>{{server_type}}</td>
+                      <td><a href="ajax/remove_server/?id={{server_id}}" class="delete_server" style="color:red"><i class="fa fa-times"></i></a></td>
+                    </tr>
+                    {{/allservers}}
+                  </table>
+                {{&no_have_servers}}
+                {{&pagination_servers}}
+                {{/acp_edit_servers_id}}
+                {{#acp_edit_servers_id}}
+                  <a href="edit_servers.php" class="btn btn-xs btn-success"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>
+                  <br/><br/>
+                  <div class="alert alert-warning"><i class="fa fa-exclamation-triangle"></i> {{lang_servers_refresh_rate}}</div>
+                  <br/>
+                  <form method="post">
+
+                    Hostname:<br/>
+                    <input type="text" class="form-control" name="hostname" value="{{acp_edit_servers_hostname}}" style="width:400px" required/><br/>
+                    
+                    IP:<br/>
+                    <input type="text" class="form-control" name="ip" value="{{acp_edit_servers_ip}}" style="width:400px" required/><br/>
+                    
+                    Port:<br/>
+                    <input type="text" class="form-control" name="port" value="{{acp_edit_servers_port}}" style="width:400px" required/><br/>
+                    
+                    Map:<br/>
+                    <input type="text" class="form-control" name="map" value="{{acp_edit_servers_map}}" style="width:400px" required/><br/>
+                    
+                    Game ({{lang_choose_type}}: cs16,csgo,minecraft,teamspeak3,samp,tf2,ventrilo):<br/>
+                    <input type="text" class="form-control" name="game" value="{{acp_edit_servers_type}}" style="width:400px" required/><br/>
+                    
+                    {{lang_acp_polls_page_voters}}:<br/>
+                    <input type="text" class="form-control" name="vote" value="{{acp_edit_servers_vote}}" style="width:400px" required/><br/>
+                    
+                    <input type="submit" name="acp_edit_servers_submit" class="btn btn-md btn-success" value="{{lang_acp_edit}}"/>
+                    
+                  </form>
+                  <br/>
+                  {{&acp_edit_servers_submit}}                
+                {{/acp_edit_servers_id}}
+                
+              </div>
+            </div>
+            
+          </div>
+        </div>
+        
+        
+        <ol class="breadcrumb">
+          <li><a href="index.php"><i class="fa fa-dashboard"></i> Admin</a></li>
+          <li class="active">{{lang_acp_servers_edit_page_info}}</li>
+        </ol>
+      </section>
+      
+      
+</div><!-- /.content-wrapper -->
+{{> footer }}  

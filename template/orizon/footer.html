@@ -1,0 +1,105 @@
+<!--********************************************* Footer start *********************************************-->
+{{&template_event_before_footer}}
+<div id="footer">
+<div class="row">
+<div class="footer_widget">
+        <div class="header"><a href="#">{{lang_info}}</a></div>
+        <div class="body">
+ 
+            {{online_users}} {{lang_registered_stats}} {{online_users_anonymous}} {{lang_guests}}  [ <a href="{{forum_path}}/viewonline.php" target="_blank">{{lang_full_list}}</a> ]<br/>
+            {{lang_groups}}: {{#group_users}} <span class="group_users" style="color: #{{group_colors}}">{{group_names}}</span> {{/group_users}}
+            <br/><br/>
+            <hr/><br/>
+            {{lang_design_from}}: <a href="#">val4o0o0</a> <i class="fa fa-copyright"></i> {{lang_allrights}} 2013-{{current_year}}. 
+
+          </div>
+</div>
+      
+<div class="divider_footer"></div>
+
+<div class="footer_widget">
+<div class="header"><a href="#">{{lang_acp_stats}}</a></div>
+<div class="body">
+{{#footer_stats_enable}}
+
+<div class="box-stats-center">
+<div class="box-stats">
+  <i class="fa fa-weixin"></i><br/>
+  {{total_posts}}<br/>
+  {{lang_posts_stats}}<br/>
+</div>
+
+<div class="box-stats">
+  <i class="fa fa-eye"></i><br/>
+  {{total_topics_views}}<br/>
+  {{lang_views_stats}}<br/>
+</div>
+
+<div class="box-stats">
+  <i class="fa fa-users"></i><br/>
+  {{total_users}}<br/>
+  {{lang_users_stats}}<br/>
+</div>
+
+<div class="box-stats">
+  <i class="fa fa-pie-chart"></i><br/>
+  {{total_topics}}<br/>
+  {{lang_topics_sm}}<br/>
+</div>
+
+<div class="box-stats">
+  <i class="fa fa-pencil"></i><br/>
+  {{total_forums}}<br/>
+  {{lang_cats_stats}}<br/>
+</div>
+
+<div class="clear clearfix"></div>
+</div> 
+{{/footer_stats_enable}}
+ 
+</div>
+</div>
+<div class="clear"></div>
+</div>
+</div>
+<!--********************************************* Footer end *********************************************--> 
+<div class="clear"></div>
+
+{{&template_event_after_footer}}
+
+
+
+</div> <!-- end main_in -->
+
+</div> <!-- end main wrapper -->
+
+</div> <!-- end footer img -->
+
+ 
+ 
+ 
+<div class="scroll-btn"><div class="scroll-btn-arrow"></div></div>
+
+<script type="text/javascript" src="{{baseurl}}/template/{{current_style}}/js/globals.js"></script>
+<script type="text/javascript" src="{{baseurl}}/template/{{current_style}}/js/head_ready.js"></script>
+
+<script>head.ready(function () { {{&jquery_js}} {{&template_event_inside_head_ready_front}} });</script>
+
+{{#all_custom_pages}}
+<div id="cd-nav" class="cd-nav">
+		<div class="cd-navigation-wrapper">
+			<div class="cd-half-block">
+				<h2>Menu</h2>
+				<nav>
+					<ul class="cd-primary-nav">
+						{{&all_custom_pages}}
+					</ul>
+				</nav>
+        {{&template_event_inside_multipurpose_menu}}
+			</div>
+		</div>
+</div>
+{{/all_custom_pages}}
+	
+</body>
+</html>

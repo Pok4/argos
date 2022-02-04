@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<!-- created by dedihost.org -->
+<html lang="en">
+  <head>
+    {{> meta }}
+  </head>
+<body class="skin-default">
+{{> header }}
+    
+{{> sidebar }}
+    
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+      <!-- Content Header (Page header) -->
+      <section class="content-header">
+        <h1>
+          {{lang_acp_add_edit_ext_info}}
+        </h1>
+        <hr class="border_acp"/>
+        
+        <div class='row'>
+          <div class='col-md-12'>
+            
+            <div class="box box-danger">
+              <div class="box-header with-border">
+                <h3 class="box-title">{{lang_acp_add_edit_ext_info}}</h3>
+              </div>
+              <div class="box-body">		   
+                
+                <table class="table table-striped">
+                  <tr>
+                    <th>{{lang_ext_name}}</th>
+                    <th>{{lang_acp_ext_version}}</th>
+                    <th>{{lang_acp_ext_status}}</th>
+                    <th></th>
+                    
+                  </tr>
+                  {{#allext}}
+                  <tr class="pic-{{pic_id}}">
+                    <td>{{ext_name}}</td>
+                    <td>
+                      {{ext_ver}}
+                    </td>
+                    <td>{{&ext_status}}</td>
+                    <td><a href="ajax/extension_updater/?id={{ext_name}}&status={{ext_url_type}}" class="ext_update" style="color:{{ext_status_color}}"><i class="{{ext_status_icon}}"></i></a></td>
+                  </tr>
+                  {{/allext}}
+                </table>     
+                {{&no_have_ext}}
+   
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+                  
+                  
+          <ol class="breadcrumb">
+                  <li><a href="index.php"><i class="fa fa-dashboard"></i> Admin</a></li>
+                  <li class="active">{{lang_acp_add_edit_ext_info}}</li>
+          </ol>
+      </section>
+                  
+                  
+</div><!-- /.content-wrapper -->
+{{> footer }}                  

@@ -1,0 +1,67 @@
+{{> header }}
+
+{{> slider }}
+
+
+<div class="widget widget-list">
+<div class="panel panel-default">
+<div class="panel-heading bold">{{lang_upload_video}}</div>
+<div class="panel-body">
+  
+{{#video_upload_enable}}
+
+{{&template_event_before_upload_videos}}
+
+<br/><a href="{{baseurl}}/videos.php"><div class="btn btn-md btn-success">{{lang_videos}}</div></a><br/>
+{{#is_logged}}
+<br/>
+<div class="alert alert-info"><i class="fa fa-exclamation-triangle"></i> {{lang_videos_up_info}}</div>
+
+<form method="post">
+{{lang_choose_video_site}}
+  <select class="form-control" name="video_site" style="max-width:300px">
+    <option value="0">{{lang_choose_site}}</option>
+    <option value="vbox">Vbox7</option>
+    <option value="youtube">Youtube</option>
+    <option value="vimeo">Vimeo</option>
+  </select><br/>
+
+  <div class="input-group" style="max-width:300px">
+    <span class="input-group-addon"><i class="fa fa-question-circle"></i></span>
+    <input type="text" name="video_title" placeholder="{{lang_video_title}}" class="form-control">
+  </div>
+  <br/>
+
+  <div class="input-group" style="max-width:300px">
+    <span class="input-group-addon"><i class="fa fa-file-video-o"></i></span>
+    <input type="text" name="videoid" placeholder="{{lang_full_videourl}}" class="form-control">
+  </div>
+  <br/>
+  
+  <select class="form-control" name="video_category" style="max-width:300px">
+    <option value="0">{{lang_choose_cat}}</option>
+    {{&allvcats}}
+  </select><br/>
+
+  <input type="submit" class="btn btn-md btn-success" name="submit_video" value="{{lang_send}}"/>
+  </form>
+{{&submit_video}}
+{{/is_logged}}
+{{^is_logged}}
+  <br/>
+  <div class="alert alert-warning"><i class="fa fa-exclamation-triangle"></i> {{lang_register_now}}</div>
+{{/is_logged}}
+{{/video_upload_enable}}
+{{^video_upload_enable}}
+  <br/>
+  <div class="alert alert-warning"><i class="fa fa-exclamation-triangle"></i> {{lang_videoupload_temp_disabled}}</div>
+{{/video_upload_enable}}
+
+</div>
+</div>
+</div>
+
+
+{{> advertise }}
+ 
+{{> footer }}

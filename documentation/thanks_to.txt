@@ -1,0 +1,38 @@
+Special thanks to:
+
+:::::::Backend:::::::
+---------------------
+Mustache PHP - https://github.com/bobthecow/mustache.php
+PHP Fast Cache - https://github.com/PHPSocialNetwork/phpfastcache
+GameQ - https://github.com/Austinb/GameQ
+phpBB - https://www.phpbb.com/
+Pagination class - http://cs-bg.info/forum/viewtopic.php?f=90&t=106517
+Youtube Video API - https://developers.google.com/youtube/
+Gravatar API - https://en.gravatar.com/site/implement/
+Pimple Container - http://pimple.sensiolabs.org/
+Event Dispatch - https://github.com/walmsles/event-dispatch
+Aura Autoload - https://github.com/auraphp/Aura.Autoload
+PHP-Router - https://github.com/dannyvankooten/PHP-Router
+Emoji's - https://github.com/Ranks/emojione
+
+:::::::Frontend:::::::
+----------------------
+Jquery - https://jquery.com/
+Bootstrap - http://getbootstrap.com/
+Jquery Carousel - https://github.com/jsor/jcarousel
+Jquery Responsive Carousel - https://github.com/filamentgroup/responsive-carousel
+HeadJS - https://github.com/headjs
+Sidr - https://github.com/artberri/sidr
+Table Sorter - https://github.com/christianbach/tablesorter
+Dropzone - https://github.com/enyo/dropzone/
+Tipso (tooltips) - https://github.com/object505/tipso
+PGWSlider - https://github.com/Pagawa/PgwSlider
+Magnific popup - https://github.com/dimsemenov/Magnific-Popup
+FancyBox - http://fancyapps.com/fancybox/
+404 page - http://w3layouts.com/ohh-under-construction-mobile-website-template/
+Font Awesome - http://fontawesome.io/?utm_source=hackernewsletter
+Multipurpose Off-side Menu - http://codepen.io/matthewhirsch/pen/meXOKE
+DeviantArt - http://www.deviantart.com/ (for default theme inspiration)
+Social Share - https://github.com/AyumuKasuga/SocialShare
+StyleSwitcher - http://www.christianbullock.com/2011/phpbb-jquery-stylesheet-switcher
+Emoji's - https://github.com/mervick/emojionearea

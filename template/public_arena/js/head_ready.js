@@ -1,0 +1,1 @@
+head.ready(function(){$(".pgwSlider").pgwSlider({maxHeight:300,intervalDuration:4e3,displayControls:!0,listPosition:"left"}),$("#mycarousel").jcarousel({scroll:1,auto:2,wrap:"last",visible:2}),$(".backtotop").click(function(){$("html, body").animate({scrollTop:0},500)}),$(".head_bar").sticky({topSpacing:0})});

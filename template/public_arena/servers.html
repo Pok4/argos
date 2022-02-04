@@ -1,0 +1,32 @@
+{{> header }}
+
+{{> slider }}
+
+{{> chat }}
+
+
+<div class="news_box">
+<i class="fa fa-server"></i> {{lang_servers}} <span class='spborder'></span>
+
+  {{#servers_enable}}
+  <div id="greyfish">
+  <div style='text-align:center' class='greyfish-preload'>
+  <b>Loading the servers...</b><br/>
+  <img src='http://i.imgur.com/RZHrcPw.gif' alt=''/>
+  </div>
+  </div>
+  {{/servers_enable}}
+  {{^servers_enable}}
+  <br/>
+  <div class="alert alert-warning"><i class="fa fa-exclamation-triangle"></i> {{lang_servers_temp_disabled}}</div>
+  {{/servers_enable}}
+
+</div>
+
+
+
+{{> advertise }}
+
+{{> stats }}
+
+{{> footer }}

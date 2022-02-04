@@ -1,0 +1,142 @@
+<!-- Left side column. contains the logo and sidebar -->
+<aside class="main-sidebar">
+  
+  <!-- sidebar: style can be found in sidebar.less -->
+  <section class="sidebar">
+    
+    <!-- Sidebar user panel (optional) -->
+    <div class="user-panel">
+      <div class="pull-left image">
+        {{&user_avatar}}
+      </div>
+      <div class="pull-left info">
+        <p>{{username}}</p> 
+        <!-- Status -->
+        <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+      </div>
+    </div>
+    
+    <!-- search form -->
+    <form action="{{forum_path}}/search.php?" method="post" class="sidebar-form">
+      <div class="input-group">
+        <input type="text" name="keywords" class="form-control" placeholder="{{lang_acp_aside_search}}"/>
+        <span class="input-group-btn">
+          <button type='submit' name='seach' id='search-btn' class="btn btn-flat"><i class="fa fa-search"></i></button>
+        </span>
+      </div>
+    </form>
+    <!-- /.search form -->
+    
+    <!-- Sidebar Menu -->
+    <ul class="sidebar-menu">
+      <li class="header">{{lang_acp_aside_nav}}</li>
+      <!-- Optionally, you can add icons to the links -->
+      <li><a href="index.php"><i class="fa fa-home" aria-hidden="true"></i> <span>{{lang_home}}</span></a></li>
+      <li><a href="configure.php"><i class="fa fa-wrench" aria-hidden="true"></i> <span>{{lang_acp_aside_config}}</span></a></li>
+      <li><a href="add_edit_user_access.php"><i class="fa fa-user-plus" aria-hidden="true"></i> <span>{{lang_acp_aside_access}}</span></a></li>
+			<li><a href="view_emails.php"><i class="fa fa-envelope" aria-hidden="true"></i> <span>{{lang_acp_aside_viewmails}}</span></a></li>
+			<li><a href="add_aboutus.php"><i class="fa fa-info-circle" aria-hidden="true"></i> <span>{{lang_acp_aside_aboutus}}</span></a></li>
+			<li><a href="edit_gallery.php"><i class="fa fa-picture-o" aria-hidden="true"></i> <span>{{lang_acp_aside_editgallery}}</span></a></li>
+      <li class="treeview">
+        <a href="#"><i class="fa fa-newspaper-o" aria-hidden="true"></i> <span>{{lang_acp_aside_news}}</span> <i class="fa fa-angle-left pull-right"></i></a>
+        <ul class="treeview-menu">
+          <li><a href="add_news.php"><i class="fa fa-plus" aria-hidden="true"></i> {{lang_acp_aside_addnews}}</a></li>
+          <li><a href="edit_news.php"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> {{lang_acp_aside_editnews}}</a></li>
+          <li><a href="edit_comments.php"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> {{lang_acp_aside_editcomments}}</a></li>
+        </ul>
+      </li>
+      <li class="treeview">
+        <a href="#"><i class="fa fa-sign-language" aria-hidden="true"></i> <span>{{lang_acp_aside_adsbanners}}</span> <i class="fa fa-angle-left pull-right"></i></a>
+        <ul class="treeview-menu">
+          <li><a href="add_banners.php"><i class="fa fa-plus" aria-hidden="true"></i> {{lang_acp_aside_addbanners}}</a></li>
+          <li><a href="edit_banners.php"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> {{lang_acp_aside_editbanners}}</a></li>
+        </ul>
+      </li>
+      <li class="treeview">
+        <a href="#"><i class="fa fa-rss" aria-hidden="true"></i> <span>{{lang_acp_aside_ownbanners}}</span> <i class="fa fa-angle-left pull-right"></i></a>
+        <ul class="treeview-menu">
+          <li><a href="add_own_banners.php"><i class="fa fa-plus" aria-hidden="true"></i> {{lang_acp_aside_addbanners}}</a></li>
+          <li><a href="edit_own_banners.php"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> {{lang_acp_aside_editbanners}}</a></li>
+        </ul>
+      </li>
+      <li class="treeview">
+        <a href="#"><i class="fa fa-sliders" aria-hidden="true"></i> <span>{{lang_acp_aside_slider}}</span> <i class="fa fa-angle-left pull-right"></i></a>
+        <ul class="treeview-menu">
+          <li><a href="add_slider.php"><i class="fa fa-plus" aria-hidden="true"></i> {{lang_acp_aside_addslider}}</a></li>
+          <li><a href="edit_sliders.php"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> {{lang_acp_aside_editsliders}}</a></li>
+        </ul>
+      </li>
+      <li class="treeview">
+        <a href="#"><i class="fa fa-bars" aria-hidden="true"></i> <span>{{lang_acp_aside_menus}}</span> <i class="fa fa-angle-left pull-right"></i></a>
+        <ul class="treeview-menu">
+          <li><a href="add_menu.php"><i class="fa fa-plus" aria-hidden="true"></i> {{lang_acp_aside_addmenu}}</a></li>
+          <li><a href="edit_menus.php"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> {{lang_acp_aside_editmenus}}</a></li>
+        </ul>
+      </li>
+      <li class="treeview">
+        <a href="#"><i class="fa fa-question-circle-o" aria-hidden="true"></i> <span>{{lang_acp_aside_poll}}</span> <i class="fa fa-angle-left pull-right"></i></a>
+        <ul class="treeview-menu">
+          <li><a href="add_poll.php"><i class="fa fa-plus" aria-hidden="true"></i> {{lang_acp_aside_addpoll}}</a></li>
+          <li><a href="edit_polls.php"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> {{lang_acp_aside_editpolls}}</a></li>
+        </ul>
+      </li>
+      <li class="treeview">
+        <a href="#"><i class="fa fa-server" aria-hidden="true"></i> <span>{{lang_acp_aside_servers}}</span> <i class="fa fa-angle-left pull-right"></i></a>
+        <ul class="treeview-menu">
+          <li><a href="add_server.php"><i class="fa fa-plus" aria-hidden="true"></i> {{lang_acp_aside_addserver}}</a></li>
+          <li><a href="edit_servers.php"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> {{lang_acp_aside_editservers}}</a></li>
+        </ul>
+      </li>
+      <li class="treeview">
+        <a href="#"><i class="fa fa-square-o" aria-hidden="true"></i> <span>{{lang_acp_aside_pages}}</span> <i class="fa fa-angle-left pull-right"></i></a>
+        <ul class="treeview-menu">
+          <li><a href="add_pages.php"><i class="fa fa-plus" aria-hidden="true"></i> {{lang_acp_aside_addpage}}</a></li>
+          <li><a href="edit_pages.php"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> {{lang_acp_aside_editpages}}</a></li>
+        </ul>
+      </li>
+      <li class="treeview">
+        <a href="#"><i class="fa fa-files-o" aria-hidden="true"></i> <span>{{lang_acp_aside_files}}</span> <i class="fa fa-angle-left pull-right"></i></a>
+        <ul class="treeview-menu">
+          <li><a href="add_file.php"><i class="fa fa-plus" aria-hidden="true"></i> {{lang_acp_aside_addfile}}</a></li>
+          <li><a href="edit_files.php"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> {{lang_acp_aside_editfiles}}</a></li>
+        </ul>
+      </li>
+      <li class="treeview">
+        <a href="#"><i class="fa fa-play-circle-o" aria-hidden="true"></i> <span>{{lang_acp_aside_videos}}</span> <i class="fa fa-angle-left pull-right"></i></a>
+        <ul class="treeview-menu">
+          <li><a href="add_video_cat.php"><i class="fa fa-plus" aria-hidden="true"></i> {{lang_acp_aside_addvcat}}</a></li>
+          <li><a href="edit_video_cat.php"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> {{lang_acp_aside_editvcats}}</a></li>
+          <li><a href="edit_videos.php"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> {{lang_acp_aside_videos_app_dis}}</a></li>
+        </ul>
+      </li>
+      <li><a href="html_editor.php"><i class="fa fa-code" aria-hidden="true"></i> <span>{{lang_acp_aside_htmleditor}}</span></a></li>
+      <li class="treeview">
+        <a href="#"><i class="fa fa-code" aria-hidden="true"></i> <span>Jquery/JS</span> <i class="fa fa-angle-left pull-right"></i></a>
+        <ul class="treeview-menu">
+        <li><a href="add_jquery_js.php"><i class="fa fa-plus" aria-hidden="true"></i> {{lang_acp_aside_injectjs}}</a></li>
+        <li><a href="edit_jquery_js.php"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> {{lang_acp_edit}} Jquery/JS</a></li>
+        </ul>
+      </li>
+      <li><a href="add_custom_css.php"><i class="fa fa-code" aria-hidden="true"></i> <span>Custom CSS</span></a></li>
+      <li><a href="add_custom_lang.php"><i class="fa fa-code" aria-hidden="true"></i> <span>Custom Lang</span></a></li>
+      <li class="treeview">
+        <a href="#"><i class="fa fa-gg" aria-hidden="true"></i> <span>{{lang_acp_aside_ext}}</span> <i class="fa fa-angle-left pull-right"></i></a>
+        <ul class="treeview-menu">
+        <li><a href="add_edit_ext.php"><i class="fa fa-plus" aria-hidden="true"></i><i class="fa fa-minus" aria-hidden="true"></i> {{lang_acp_aside_ext}}</a></li>
+        {{&template_admin_event_ext_pages}}
+        </ul>
+      </li>
+      <li class="treeview">
+      <a href="#"><span class="stylesw2">&nbsp;</span></a>
+      <ul class="treeview-menu">
+      <li><a href="#" data-rel="" class="switch">Default</a></li>
+            <li><a href="#" data-rel="template/css/colours/green.css" class="switch">Green</a></li>
+            <li><a href="#" data-rel="template/css/colours/blue.css" class="switch">Blue</a></li>
+            <li><a href="#" data-rel="template/css/colours/purple.css" class="switch">Purple</a></li>
+            <li><a href="#" data-rel="template/css/colours/yellow.css" class="switch">Yellow</a></li>
+      </ul>
+      </li>
+    </ul><!-- /.sidebar-menu -->
+  </section>
+  <!-- /.sidebar -->
+</aside>        

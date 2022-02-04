@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<!-- created by dedihost.org -->
+<html lang="en">
+  <head>
+    {{> meta }}
+  </head>
+<body class="skin-default">
+{{> header }}
+    
+{{> sidebar }}
+    
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+      <!-- Content Header (Page header) -->
+      <section class="content-header">
+        <h1>
+          {{lang_acp_menu_edit_info}}
+        </h1>
+        <hr class="border_acp"/>
+        
+        <div class='row'>
+          <div class='col-md-12'>
+            
+            <div class="box box-danger">
+              <div class="box-header with-border">
+                <h3 class="box-title">{{lang_acp_menu_edit_info}}</h3>
+              </div>
+              <div class="box-body">		   
+                
+                {{^acp_edit_menus_id}}
+                  <table class="table table-striped">
+                    <tr>
+                      <th>{{lang_acp_menu_edit_menu_name}}</th>
+                      <th>{{lang_acp_delete}}</th>
+                    </tr>
+                    {{#allmenus}}
+                    <tr class="menu-{{menu_id}}">
+                      <td><a href="edit_menus.php?id={{menu_id}}">{{menu_title}}</a></td>
+                      <td><a href="ajax/remove_menu/?id={{menu_id}}" class="delete_menu" data-mail="{{menu_id}}" style="color:red"><i class="fa fa-times"></i></a></td> 
+                    </tr>
+                    {{/allmenus}}
+                  </table>
+                  {{&no_have_menus}}
+                
+                {{/acp_edit_menus_id}}
+                {{#acp_edit_menus_id}}
+                  <a href="edit_menus.php" class="btn btn-xs btn-success"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>
+                  <br/><br/>
+                  <form role="form" method="post">
+                    <div class="form-group">
+                        <b>{{lang_acp_menu_edit_menu_name}}</b>
+                        <input type="text" name="menu_title" placeholder="{{lang_acp_menu_edit_menu_name}}" value="{{acp_edit_menus_title}}" class="form-control" />
+                    </div>
+
+                    <div class="form-group">
+                        <b>{{lang_menu_contain_label}}</b>
+                        <textarea class="darcy" data-editor="php" name="menu_content" style="height:200px;width:100%">{{acp_edit_menus_the_content}}</textarea>
+                    </div>
+
+                    <button type="submit" name="acp_edit_menus_submit" class="btn btn-success">{{lang_acp_edit}}</button> 
+                  </form>
+                  <br/>
+                  {{&acp_edit_menus_submit}}
+                {{/acp_edit_menus_id}}
+                
+              </div>
+            </div>
+          </div>
+        </div>
+          
+          
+        <ol class="breadcrumb">
+            <li><a href="index.php"><i class="fa fa-dashboard"></i> Admin</a></li>
+            <li class="active">{{lang_acp_menu_edit_info}}</li>
+        </ol>
+      </section>
+          
+          
+</div><!-- /.content-wrapper -->
+          
+{{> footer }}          

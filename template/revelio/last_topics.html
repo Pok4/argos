@@ -1,0 +1,48 @@
+
+<div class="panel argos_last_forum_topics">
+<h2> {{lang_last}} 5 {{lang_topics_sm}}</h2>
+<div class="panel-content">
+
+<br/>
+<div class="table-responsive">
+  <table class="table">
+  <tr>
+    <td>{{lang_title}}</td>
+    <td>{{lang_author}}</td>
+    <td>{{lang_date}}</td>
+    <td>{{lang_views}}</td>
+	</tr>
+	{{#last_topics}}
+	<tr>
+    <td><a href="{{topic_link}}" target="_blank">{{ topic_titles }}</a></td>
+    <td style="color:#{{topic_user_color}}">{{ usernames }}</td>
+    <td>{{ topic_time }}</td>
+    <td>{{ topic_views }}</td>
+	</tr>
+	{{/last_topics}}
+  </table>
+</div>
+</div>
+  </div>
+
+{{#no_menuz2}}
+  {{^hide_test_menus}}
+  <div class="panel argos_test_menu">
+  <h2> {{lang_test_menu}}</h2>
+  <div class="panel-content">  
+    {{&lang_test_menu_text}}
+  </div>
+  </div>
+  {{/hide_test_menus}}
+{{/no_menuz2}}
+{{^no_menuz2}}
+{{#get_menus2}}
+
+<div class="panel">
+<h2>  {{menu_title2}}</h2>
+<div class="panel-content">  
+  {{&menu_content2}}
+</div>
+</div>
+{{/get_menus2}}
+{{/no_menuz2}}

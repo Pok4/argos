@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<!-- created by dedihost.org -->
+<html lang="en">
+  <head>
+    {{> meta }}
+  </head>
+<body class="skin-default">
+{{> header }}
+    
+{{> sidebar }}
+    
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+      <!-- Content Header (Page header) -->
+      <section class="content-header">
+        <h1>
+          {{lang_acp_comments_page_info}}
+        </h1>
+        <hr class="border_acp"/>
+        
+        <div class='row'>
+          <div class='col-md-12'>
+            
+            <div class="box box-danger">
+              <div class="box-header with-border">
+                <h3 class="box-title">{{lang_acp_comments_page_info}}</h3>
+              </div>
+              <div class="box-body">		   
+                
+                {{^acp_edit_comments_id}}
+                  <ul class="timeline">
+                  
+                  {{#allcomments}} 
+                  <!-- timeline time label -->
+                  <li class="time-label comment-{{sender_id}}">
+                      <span class="bg-red">
+                        {{sender_date}}
+                      </span>
+                  </li>
+                  <!-- /.timeline-label -->
+                  
+                  <!-- timeline item -->
+                  <li class="comment-{{sender_id}}">
+                    <!-- timeline icon -->
+                      <i class="fa fa-weixin bg-blue"></i>
+                      <div class="timeline-item">
+                      <h3 class="timeline-header"><a style="color:#{{sender_color}} !important" href="{{baseurl}}/{{forum_path}}/memberlist.php?mode=viewprofile&amp;u={{user_id}}">{{sender_username}}</a> {{lang_acp_comments_page_tonews}}: <a href="{{baseurl}}/{{seourl}}">{{news_title}}</a></h3>
+                      
+                      <div class="timeline-body">
+                        {{&sender_text}}
+                      </div>
+                    
+                      <div class='timeline-footer'>
+                      <a href="edit_comments.php?id={{sender_id}}" class="btn btn-primary btn-xs">{{lang_acp_edit}}</a> &nbsp;&nbsp;&nbsp;&nbsp;
+                      <a href="ajax/remove_comments/?id={{sender_id}}" class="delete_comment" style="color:red"><i class="fa fa-times"></i></a>
+                      </div>
+                      </div>
+                    </li>
+                    <!-- END timeline item -->
+                    {{/allcomments}}
+                    
+                    </ul>
+                    {{&no_have_comments}}
+                    {{&pagination_comments}}
+                  {{/acp_edit_comments_id}}
+                  {{#acp_edit_comments_id}}
+                    <a href="edit_comments.php" class="btn btn-xs btn-success"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>
+                    <br/><br/>
+                    <form role="form" method="post">
+                      <b>{{lang_text_for_comment}}</b>
+                      <textarea class="darcy form-control" data-editor="php" name="text" style="height:200px;width:100%">{{acp_edit_comments_text}}</textarea><br/>
+                     <button type="submit" name="acp_edit_comments_submit" class="btn btn-success">{{lang_acp_edit}}</button>
+                    </form>
+                    <br/>
+                    {{&acp_edit_comments_submit}}
+                  {{/acp_edit_comments_id}}
+                  
+                </div>
+              </div> 
+            </div>
+          </div>
+                    
+                    
+          <ol class="breadcrumb">
+              <li><a href="index.php"><i class="fa fa-dashboard"></i> Admin</a></li>
+              <li class="active">{{lang_acp_comments_page_info}}</li>
+          </ol>
+      </section>
+                    
+                    
+</div><!-- /.content-wrapper -->
+                    
+{{> footer }}                    

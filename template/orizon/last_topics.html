@@ -1,0 +1,49 @@
+
+<div class="clear"></div> <!-- clear pagination -->
+
+<div class="big_normal argos_last_forum_topics">
+<div class="header"><i class="fa fa-comment"></i> {{lang_last}} 5 {{lang_topics_sm}}</div>
+<div class="body">
+
+<div class="table-responsive">
+  <table class="table">
+  <tr>
+    <td>{{lang_title}}</td>
+    <td>{{lang_author}}</td>
+    <td>{{lang_date}}</td>
+    <td>{{lang_views}}</td>
+	</tr>
+	{{#last_topics}}
+	<tr>
+    <td><a href="{{topic_link}}" target="_blank">{{ topic_titles }}</a></td>
+    <td style="color:#{{topic_user_color}}">{{ usernames }}</td>
+    <td>{{ topic_time }}</td>
+    <td>{{ topic_views }}</td>
+	</tr>
+	{{/last_topics}}
+  </table>
+</div>
+
+</div>
+</div>
+
+{{#no_menuz2}}
+  {{^hide_test_menus}}
+  <div class="big_normal argos_test_menu">
+  <div class="header"><i class="fa fa-bars"></i> {{lang_test_menu}}</div>
+  <div class="body">
+   {{&lang_test_menu_text}}
+  </div>
+  </div>
+  {{/hide_test_menus}}
+{{/no_menuz2}}
+{{^no_menuz2}}
+{{#get_menus2}}
+<div class="big_normal">
+<div class="header"><i class="fa fa-bars"></i> {{menu_title2}}</div>
+<div class="body">
+  {{&menu_content2}}
+</div>
+</div>
+{{/get_menus2}}
+{{/no_menuz2}}

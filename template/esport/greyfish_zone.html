@@ -1,0 +1,48 @@
+{{#greyfish_servers}}
+<link href="{{baseurl}}/greyfish/style_zone.css" rel="stylesheet" type="text/css" media="screen, projection" />
+<script src="{{baseurl}}/greyfish/js/fancybox/jquery.fancybox.pack.js"></script>
+<script src="{{baseurl}}/greyfish/js/carousel/responsive-carousel.js"></script>
+<script src="{{baseurl}}/greyfish/js/carousel/responsive-carousel.autoplay.js"></script>
+<link href="{{baseurl}}/greyfish/js/carousel/responsive-carousel.css" rel="stylesheet" type="text/css" media="screen, projection" />
+<div style="max-width:240px;max-height:170px;margin:15px auto">
+<div class="slider" data-transition="fade" data-autoplay>
+
+{{#greyfish_zone}}
+    <div class='mqy'>
+      {{&greyfish_zone_mapimg}}
+      <span class="caption" style="border-left:4px solid {{greyfish_zone_statuscolor}}">
+      <span style="float:left"><span  onclick='prompt("{{greyfish_zone_hostname_min}} IP:","{{greyfish_zone_ip}}:{{greyfish_zone_port}}"); return false;'>{{greyfish_zone_ip}}:{{greyfish_zone_port}}</span><br/>{{greyfish_zone_hostname_min}}</span>
+      <span style="float:right">{{lang_acp_files_add_page_map}}: {{greyfish_zone_map_min}}<br/>{{lang_greyfish_players}}: <i class='fancybox2 uncategorizei' data-fancybox-type='iframe' data-href='{{baseurl}}/greyfish/showplayers.php?ip={{greyfish_zone_ip}}&amp;port={{greyfish_zone_port}}&amp;game={{greyfish_zone_type}}' title='{{greyfish_zone_hostname_min}} :: PLAYERS:' data-type='iframe'>{{greyfish_zone_players}}/{{greyfish_zone_maxplayers}}</i></span>
+      </span>
+
+      <div class="clear"></div>
+      <div class="statusbar back">
+      <div class="statusbar filled" style="width: {{greyfish_zone_progressbar}}%"></div>
+      </div>           
+    </div>
+{{/greyfish_zone}}   
+
+</div>
+</div>
+
+<script>
+$(".fancybox2").fancybox({
+		maxWidth	: 850,
+		maxHeight	: 600,
+		fitToView	: false,
+		width		: '30%',
+		height		: '70%',
+		autoSize	: false,
+		closeClick	: false,
+		openEffect	: 'none',
+		closeEffect	: 'none'
+});
+	
+$( ".slider" ).carousel();
+</script>
+{{/greyfish_servers}}
+{{^greyfish_servers}}
+<br/><div class='alert alert-danger'><i class='fa fa-exclamation-triangle'></i> {{lang_acp_no_servers}}</div>
+{{/greyfish_servers}}
+
+ 

@@ -1,0 +1,100 @@
+</div> <!-- end mainbox -->
+</section> <!-- end content -->
+</div> <!-- end top layer -->
+<div class="clear"></div>
+
+{{&template_event_before_footer}}
+
+<div class="wrapper">
+  <div class="footer"> 
+  
+  {{#footer_stats_enable}}  
+    <div class="footer-top"></div>
+				
+    <div class="footer-content">
+
+      <div class="panel">
+        <h2>Stats</h2>
+        <div class="top-right"><a href="{{forum_path}}/viewonline.php" target="_blank">{{lang_full_list}}</a></div>
+        <div class="panel-content">
+          
+        {{online_users}} {{lang_registered_stats}} {{online_users_anonymous}} {{lang_guests}}<br/>
+        {{lang_groups}}: {{#group_users}} <span class="group_users" style="color: #{{group_colors}}">{{group_names}}</span> {{/group_users}}
+          
+        </div>
+      </div>
+        
+      <div class="panel">
+        <h2>{{lang_posts_stats}}</h2>
+        <div class="panel-content">
+          
+         <i class="fa fa-weixin"></i>   {{lang_posts_stats}}: {{total_posts}} / {{lang_cats_stats}}: {{total_forums}} / {{lang_topics_sm}}: {{total_topics}}
+          
+        </div>
+      </div>
+      
+      <div class="panel">
+        <h2>{{lang_views_stats}}</h2>
+        <div class="panel-content">
+          
+         <i class="fa fa-eye"></i>  {{total_topics_views}}
+          
+        </div>
+      </div>
+
+      <div class="panel">
+        <h2>{{lang_users_stats}}</h2>
+        <div class="panel-content">
+          
+         <i class="fa fa-users"></i> {{total_users}}
+          
+        </div>
+      </div>
+ 
+      
+    </div>
+  {{/footer_stats_enable}}
+
+    <div class="footer-bottom">
+      <div class="left">{{lang_design_from}}: <a href="#">val4o0o0</a> <i class="fa fa-copyright"></i> {{lang_allrights}} 2013-{{current_year}}.</div>
+      <div class="right">
+        <ul>
+          <li><a href="index.php">{{lang_home}}</a></li>
+          <li><a href="{{forum_path}}">{{lang_forum}}</a></li>
+          <li><a href="{{baseurl}}/aboutus.php">{{lang_aboutus}}</a></li>
+          <li><a href="{{baseurl}}/contact.php">{{lang_contacts}}</a></li>
+        </ul>
+      </div>
+      <div class="clear"></div>
+    </div>
+  </div>			
+</div>
+
+{{&template_event_after_footer}}
+
+
+<div class="scroll-btn"><div class="scroll-btn-arrow"></div></div>
+
+<script type="text/javascript" src="{{baseurl}}/template/{{current_style}}/js/globals.js"></script>
+<script type="text/javascript" src="{{baseurl}}/template/{{current_style}}/js/head_ready.js"></script>
+
+<script>head.ready(function () { {{&jquery_js}} {{&template_event_inside_head_ready_front}} });</script>
+
+{{#all_custom_pages}}
+<div id="cd-nav" class="cd-nav">
+		<div class="cd-navigation-wrapper">
+			<div class="cd-half-block">
+				<h2>Menu</h2>
+				<nav>
+					<ul class="cd-primary-nav">
+						{{&all_custom_pages}}
+					</ul>
+				</nav>
+        {{&template_event_inside_multipurpose_menu}}
+			</div>
+		</div>
+</div>
+{{/all_custom_pages}}
+	
+</body>
+</html>

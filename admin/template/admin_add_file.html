@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<!-- created by dedihost.org -->
+<html lang="en">
+  <head>
+    {{> meta }}
+  </head>
+<body class="skin-default">
+{{> header }}
+    
+{{> sidebar }}
+    
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+      <!-- Content Header (Page header) -->
+      <section class="content-header">
+        <h1>
+          {{lang_acp_files_page_add_info}}
+        </h1>
+        <hr class="border_acp"/>
+        
+        <div class='row'>
+          <div class='col-md-12'>
+            
+          <div class="box box-danger">
+              <div class="box-header with-border">
+                <h3 class="box-title">{{lang_acp_files_page_add_info}}</h3>
+              </div>
+              <div class="box-body">		   
+                <div class="alert alert-info">{{lang_acp_files_page_add_about}}</div>
+                
+                <form method="post" id="game">
+                  {{lang_acp_files_add_page_for_game}}: <span style='color:red'>*</span>
+                  <select name="dropdown_game" id="dropdown_game">
+                    <option value="0" selected="selected"> {{lang_acp_files_add_page_choose}} </option>
+                    <option value="1">CS 1.6</option>
+                    <option value="2">CS GO</option>
+                    <option value="3">SAMP</option>
+                    <option value="4">Minecraft</option>
+                  </select>
+                  <br/>
+                  {{lang_acp_files_add_page_type}}: <span style='color:red'>*</span>
+                  <select name="dropdown_type" id="dropdown_type">
+                    <option value="" selected="selected"> {{lang_acp_files_add_page_choose}} </option>
+                    <option value="1">{{lang_acp_files_add_page_plugin}}</option>
+                    <option value="2">{{lang_acp_files_add_page_map}}</option>
+                    <option value="3">{{lang_acp_files_add_page_skin}}</option>
+                    <option value="4">{{lang_acp_files_add_page_program}}</option>
+                  </select>
+                </form><br/>
+              
+              {{#form_cant_submit}}
+              <div class="alert alert-warning">{{form_cant_submit}}</div>
+              {{/form_cant_submit}}
+              {{^form_cant_submit}}
+              <div class="alert alert-success">{{lang_acp_files_add_page_can_proceed}} // {{file_game}} <i class="fa fa-arrow-circle-right"></i> {{file_type}}</div>
+              {{/form_cant_submit}}
+              
+              <form method="post" style="max-width:700px">
+              
+              {{&ready_template}}
+              
+              <input type="hidden" name="file_game" value="{{file_game_not_real}}"/>
+              <input type="hidden" name="file_type" value="{{file_type_not_real}}"/>
+              
+              <div class="input-group">
+              <span class="input-group-addon"><i class="fa fa-pencil"></i></span>
+              <input type="text" name="file_name" placeholder="{{lang_acp_files_page_edit_name_of_file}}" class="form-control" required>
+              </div>
+              <br/>
+              
+              <div class="input-group">
+              <span class="input-group-addon"><i class="fa fa-image"></i></span>
+              <input type="text" name="file_img" placeholder="{{lang_acp_files_add_page_imglink}}" class="form-control">
+              </div>
+              <br/>
+              
+              <div class="input-group">
+              <span class="input-group-addon"><i class="fa fa-file"></i></span>
+              <input type="text" name="file_link" placeholder="{{lang_acp_files_add_page_link}}" class="form-control" required>
+              </div>
+              <br/>
+              
+              <div class="input-group">
+              <span class="input-group-addon"><i class="fa fa-file"></i></span>
+              <input type="text" name="file_size" placeholder="{{lang_acp_files_add_page_size}}" class="form-control" required>
+              </div>
+              <br/>
+              
+              <div class="input-group">
+              <span class="input-group-addon"><i class="fa fa-user"></i></span>
+              <input type="text" name="file_author" placeholder="{{lang_acp_files_add_page_author}}" class="form-control" required>
+              </div>
+              <br/>
+              
+              {{lang_description}}<br/>
+              <textarea class="darcy" data-editor="php" name="opisanie" style="height:200px;width:100%" required></textarea><br/>
+              
+              <input type="submit" name="submit_file" value="{{lang_send}}" class="btn btn-md btn-success"/>
+              
+              </form>		
+              {{#file_add}}<br/> {{&file_add}}{{/file_add}}
+              
+              </div>
+          </div>              
+          </div>
+        </div>
+              
+              
+        <ol class="breadcrumb">
+              <li><a href="index.php"><i class="fa fa-dashboard"></i> Admin</a></li>
+              <li class="active">{{lang_acp_files_page_add_info}}</li>
+        </ol>
+      </section>
+              
+              
+</div><!-- /.content-wrapper -->
+              
+{{> footer }}              

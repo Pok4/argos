@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">    
+  <base href="{{baseurl}}/">
+  <!-- this loads jquery asyncrounously & in parallel -->
+  <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/headjs/1.0.3/head.load.min.js"></script>
+  <script>
+    head.load("//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js","{{baseurl}}/template/{{current_style}}/js/emojionearea.min.js","{{baseurl}}/template/{{current_style}}/js/pgwslider.min.js","{{baseurl}}/template/{{current_style}}/js/modernizr.custom.50878.js","{{baseurl}}/template/{{current_style}}/js/dat-menu.js","//cdnjs.cloudflare.com/ajax/libs/iScroll/5.2.0/iscroll-lite.min.js","{{baseurl}}/template/{{current_style}}/js/carousel.js" {{#is_files_page}},"{{baseurl}}/template/{{current_style}}/js/jquery.magnific-popup.min.js"{{/is_files_page}}{{#is_gallery_page}},"{{baseurl}}/template/{{current_style}}/js/jquery.magnific-popup.min.js"{{/is_gallery_page}}{{#is_video_page}},"{{baseurl}}/template/{{current_style}}/js/jquery.magnific-popup.min.js"{{/is_video_page}}{{#is_uploadimg_page}},"{{baseurl}}/template/{{current_style}}/js/dropzone.js"{{/is_uploadimg_page}});
+  </script>
+  <link rel="stylesheet" href="{{baseurl}}/template/{{current_style}}/css/reset.css" media="screen" />
+  <link rel="stylesheet" href="{{baseurl}}/template/{{current_style}}/css/style.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="{{baseurl}}/template/{{current_style}}/css/dat-menu.css" media="screen" />
+  <link rel="stylesheet" href="{{baseurl}}/template/{{current_style}}/css/revelio.css" media="screen" />
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Sans+Pro" />
+  <link rel="stylesheet" href="{{baseurl}}/template/{{current_style}}/css/mq.css">
+  <link rel="stylesheet" href="{{baseurl}}/template/{{current_style}}/css/custom.css">
+  <link rel="stylesheet" href="{{baseurl}}/template/{{current_style}}/css/emojionearea.min.css"> 
+  {{#is_files_page}}
+  <link rel="stylesheet" href="{{baseurl}}/template/{{current_style}}/css/magnific-popup.css">  
+  {{/is_files_page}}
+  
+  {{#is_gallery_page}}
+  <link rel="stylesheet" href="{{baseurl}}/template/{{current_style}}/css/magnific-popup.css">  
+  {{/is_gallery_page}}
+  
+  {{#is_video_page}}
+  <link rel="stylesheet" href="{{baseurl}}/template/{{current_style}}/css/magnific-popup.css">  
+  {{/is_video_page}}
+  
+  {{#is_uploadimg_page}}
+  <link rel="stylesheet" href="{{baseurl}}/template/{{current_style}}/css/dropzone.css">  
+  {{/is_uploadimg_page}}
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <link rel="icon" href="{{baseurl}}/{{favicon}}">
+  
+  {{#google_site_verify}}
+  <meta name="google-site-verification" content="{{google_site_verify}}" />
+  {{/google_site_verify}}
+  
+  {{#google_analytics}}
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    
+    ga('create', '{{google_analytics}}', 'auto');
+    ga('send', 'pageview');
+  </script>
+  {{/google_analytics}}
+  
+  <title>{{site_name}} {{#news_exists}} - {{news_title}} {{/news_exists}} {{^news_exists}} - {{page_title}}{{/news_exists}}</title>
+  {{&template_event_head_append}}
+</head>
+<body class="no-slider">
+    
+{{#all_custom_pages}}
+<div class="left-hand-box">
+  <div class="hidden-button"><i class="fa fa-arrow-right"></i></div>
+</div>
+{{/all_custom_pages}}
+
+{{#cookie_policy_enable}}
+<div class="cookie_bar" style="display:none">
+  {{lang_cookie_policy}}
+  <input type="button" class="btn btn-md btn-success cookie_accept" value="OK"/> 
+  <input type="button" class="btn btn-md btn-primary" value="{{lang_privacy_policy}}" onclick="location.href='{{forum_path}}/ucp.php?mode=privacy'"/> 
+</div>
+{{/cookie_policy_enable}}
+
+{{&template_event_before_header}}
+
+<div id="top-layer">
+  <div id="header-top">
+    <div class="wrapper">
+      {{#socials_enable}}	
+      <ul class="right">
+        <li><a href="{{&fb_link}}" target="_blank"><i class="fa fa-facebook"></i></a></li>
+        <li><a href="{{&tw_link}}" target="_blank"><i class="fa fa-twitter"></i></a></li>
+        <li><a href="{{&goo_link}}" target="_blank"><i class="fa fa-google"></i></a></li>
+      </ul>
+      {{/socials_enable}}
+      <ul class="load-responsive" data-rel="Top-Menu">
+        {{#is_logged}}
+        <li><a href="#"><span>{{username}}</span></a>
+          <ul class="sub-menu">
+            <li><a href="{{forum_path}}/ucp.php?i=pm&amp;folder=inbox">{{lang_pm}}<small>{{unread_pm}}</small></a></li>
+            <li><a href="#"><b>{{lang_posts}}</b>: {{user_posts}}</a></li>
+            <li><a href="#"><b>IP</b>: {{user_ip}}</a></li>
+            <li><a href="{{forum_path}}/ucp.php">{{lang_config}}</a></li>
+            <li><a href="#" onclick="location.href='{{user_logout}}'">{{lang_logout}}</a></li>
+          </ul>
+        </li>
+        {{/is_logged}}
+        {{^is_logged}}
+        <li><a href="#"><span>{{lang_profile}}</span></a>
+          <ul class="sub-menu">
+            <li><a href="{{forum_path}}/ucp.php?mode=register">{{lang_register}}</a></li>
+            <li><a href="{{forum_path}}/ucp.php?mode=login">{{lang_login}}</a></li>
+          </ul>
+        </li>
+        {{/is_logged}}
+        <li><a href="#"><span>{{lang_search}}</span></a>
+         <ul class="sub-menu">
+           <li>
+            <form method="post" action="{{forum_path}}/search.php?" style="max-width:300px">
+              <input type="text" class="form-control" name="keywords" placeholder="{{lang_type_letters}}" style="display:inline-block" />
+              <input type="submit" class="hide" name="search" value="{{lang_search}}"/>
+            </form> 
+           </li>
+         </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+  
+  <section id="content">
+    <header id="header">
+      <div id="menu-bottom">
+        <nav id="menu" class="main-menu">
+          <div class="blur-before"></div>
+          <a href="index.php" class="header-logo left"><img src="{{baseurl}}/template/{{current_style}}/img/logo.png" class="logo" alt="Revelio" title="" /></a>
+          <a href="#dat-menu" class="datmenu-prompt"><i class="fa fa-bars"></i>{{lang_menu}}</a>
+          <ul class="load-responsive" data-rel="Bottom-Menu">
+            
+            
+            <li><a href="{{baseurl}}"><span><i class="fa fa-home"></i><strong>{{lang_home}}</strong></span></a></li>
+            <li><a href="{{forum_path}}"><span><i class="fa fa-pencil"></i><strong>{{lang_forum}}</strong></span></a></li>
+            <li><a href="{{baseurl}}/aboutus.php"><span><i class="fa fa-question-circle"></i><strong>{{lang_aboutus}}</strong></span></a></li>
+            <li><a href="{{baseurl}}/contact.php"><span><i class="fa fa-envelope"></i><strong>{{lang_contacts}}</strong></span></a></li>
+            <li><a href="{{baseurl}}/servers.php"><span><i class="fa fa-server"></i><strong>{{lang_servers}}</strong></span></a></li>
+            {{#banlist_url}}<li><a href="{{&banlist_url}}"><span><i class="fa fa-user-times"></i><strong>{{lang_banlist}}</strong></span></a></li>{{/banlist_url}}
+            
+            <li><a href="#"><span><i class="fa fa-bars"></i><strong>{{lang_menu}}</strong></span></a>
+              <ul class="sub-menu">
+                {{#img_upload_enable}}<li><a href="{{baseurl}}/upload_img.php">{{lang_right_up_img}}</a></li>{{/img_upload_enable}}
+                {{#gallery_enable}}<li><a href="{{baseurl}}/gallery.php">{{lang_gallery}}</a></li>{{/gallery_enable}}
+                {{#file_upload_enable}}<li><a href="{{baseurl}}/files.php">{{lang_files}}</a></li>{{/file_upload_enable}}
+                {{#video_upload_enable}}<li><a href="{{baseurl}}/videos.php">{{lang_videos}}</a></li>{{/video_upload_enable}}
+                <li><a href="{{baseurl}}/banners.php">{{lang_banners}}</a></li>
+              </ul>
+            </li>
+            
+            <li><a href="#"><span><i class="fa fa-language"></i><strong>{{lang_lang}}</strong></span></a>
+              <ul class="sub-menu">{{&get_active_lang}}</ul>
+            </li>
+          </ul>
+        </nav>
+      </div>
+      <div class="wrapper">
+        <div class="header-breadcrumbs">
+          <!-- Your Text Here -->
+        </div>
+      </div>
+    </header>
+         
+     
+{{&template_event_after_header}}
+        
+            

@@ -1,0 +1,54 @@
+<div class="col-sm-4">
+ 
+  {{&template_event_before_right_menu}}  
+  
+  {{#no_menuz}}
+    {{^hide_test_menus}}
+    <div class="boxx argos_test_menu">
+      <div class="head"><div class="head_ico"><i class="fa fa-bars"></i></div><span class="head_title">{{lang_test_menu}}</span></div>
+      <div class="some_padding">
+        {{&lang_test_menu_text}}
+      </div>
+    </div>
+    {{/hide_test_menus}}
+  {{/no_menuz}}
+  {{^no_menuz}}
+  {{#get_menus}}
+  <div class="boxx">
+    <div class="head"><div class="head_ico"><i class="fa fa-bars"></i></div><span class="head_title">{{menu_title}}</span></div>
+    <div class="some_padding">
+      {{&menu_content}}
+    </div>
+  </div>
+  {{/get_menus}}
+  {{/no_menuz}}
+  
+  <!-- custom menuz -->
+  {{#poll_enable}}
+  <div class="boxx">
+    <div class="head"><div class="head_ico"><i class="fa fa-bar-chart"></i></div><span class="head_title">{{lang_poll}}</span></div>
+    <div class="some_padding">
+      {{&poll_print}}
+      {{poll_choose}}
+    </div>
+  </div>
+  {{/poll_enable}}
+  
+  {{#servers_enable}}
+  <div class="boxx">
+    <div class="head"><div class="head_ico"><i class="fa fa-server"></i></div><span class="head_title">{{lang_servers}}</span></div>
+    <div class="some_padding">
+      <div id="greyfish2">
+        <div style='text-align:center' class='greyfish-preload2'>
+          <b>Loading the servers...</b><br/>
+          <img src='http://i.imgur.com/RZHrcPw.gif' alt=''/>
+        </div>
+      </div>
+      <a href="{{baseurl}}/servers.php" class="btn btn-md btn-primary" style="color:#fff !important">{{lang_view_all_servers}}</a>
+    </div>
+  </div>
+  {{/servers_enable}}
+  <!-- end custom menuz -->
+
+  {{&template_event_after_right_menu}} 
+</div>

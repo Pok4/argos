@@ -1,0 +1,13 @@
+{
+    "minimum-stability": "dev",
+    "require": {
+        "walmsles/event-dispatch": "^0.1.0",
+        "mustache/mustache": "^2.10",
+        "phpFastCache/phpFastCache": "^4.3",
+        "pimple/pimple": "~3.0",
+        "aura/autoload": "^2.0",
+        "dannyvankooten/php-router": "^1.2@alpha",
+        "austinb/gameq": "^3.0",
+        "vlucas/phpdotenv": "^2.4"
+    }
+}

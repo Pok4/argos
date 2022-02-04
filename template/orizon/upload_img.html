@@ -1,0 +1,39 @@
+{{> header }}
+
+{{> slider }}
+
+{{> chat }}
+
+
+
+
+<div id="full_page_wrapper">
+<div class="big_normal">
+<div class="header"><i class="fa fa-picture-o"></i> {{lang_upload_img}}</div>
+<div class="body">
+  
+{{#img_upload_enable}}
+<br/><a href="{{baseurl}}/gallery.php"><div class="btn btn-md btn-success">{{lang_gallery}}</div></a><br/>
+{{#is_logged}}
+<br/>
+{{&template_event_before_dropbox}}
+<form action="ajax/dropzone" class="dropzone"></form>
+{{/is_logged}}
+{{^is_logged}}
+<br/>
+<div class="alert alert-warning"><i class="fa fa-exclamation-triangle"></i> {{lang_register_now}}</div>
+{{/is_logged}}
+{{/img_upload_enable}}
+{{^img_upload_enable}}
+<br/>
+<div class="alert alert-warning"><i class="fa fa-exclamation-triangle"></i> {{lang_imgupload_temp_disabled}}</div>
+{{/img_upload_enable}}
+
+</div>
+</div>
+</div>
+
+
+{{> advertise }}
+
+{{> footer }}

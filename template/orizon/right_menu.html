@@ -1,0 +1,112 @@
+<div id="right_wrapper">
+  
+{{&template_event_before_right_menu}}    
+  
+<div id="search">
+  <form method="post" action="{{forum_path}}/search.php?">
+            <input type="text" name="keywords" placeholder="{{lang_type_letters}}" onblur="if(this.value =='') this.value='search'" onfocus="if (this.value == 'search') this.value=''"  class="required" id="s" />
+            <input type="button" name="search" value="&nbsp;" />
+  </form>
+</div>
+
+<div class="normal">
+<div class="header"><i class="fa fa-bars"></i> {{#is_logged}}{{lang_profile}}{{/is_logged}}{{^is_logged}}{{lang_login}}{{/is_logged}}</div>
+<div class="body">
+
+{{#is_logged}}
+<div style="float:left">
+<span class="avatar"><img alt="" src="{{baseurl}}/assets/img/no_avatar.png"/></span>
+</div>
+<div style="float:right">
+{{lang_welcome}}, <a href="{{forum_path}}/memberlist.php?mode=viewprofile&amp;u={{user_id}}" target="_blank" class="tipso" title="{{lang_view_profile}}">{{username}}</a> !&nbsp;
+<a href="{{forum_path}}/ucp.php?i=pm&amp;folder=inbox" target="_blank" class="btn btn-xs btn-info" title="{{lang_pm}}">{{#unread_pm}}<span class="tochka">{{unread_pm}}</span>{{/unread_pm}}<i class="fa fa-envelope-o"></i></a>&nbsp;
+<a href="{{forum_path}}/ucp.php" target="_blank" class="btn btn-xs btn-danger" title="{{lang_config}}"><i class="fa fa-wrench"></i></a>
+</div>
+<div class="clear"></div>
+ 
+<div>
+<b>{{lang_nick}}</b>: {{username}}<br/>
+<b>{{lang_posts}}</b>: {{user_posts}}<br/>
+<b>IP</b>: {{user_ip}}<br/>
+<b>{{lang_last_visit}}</b>: {{user_last_visit}}<br/>
+{{#is_admin}}
+  <a href="{{baseurl}}/admin" target="_blank">[{{lang_admin_panel}}]</a><br/>
+  <a href="{{forum_path}}/adm/index.php?sid={{session_id}}" target="_blank">[{{lang_admin_panel_f}}]</a>
+{{/is_admin}}
+</div>
+<br/>
+<form method="post">
+  <input type="button" class="btn btn-md btn-success" onclick="location.href='{{user_logout}}'" value="{{lang_logout}}"/>
+</form>
+{{/is_logged}}
+{{^is_logged}}
+<form action="{{login_proceed}}" method="post">
+  <input type="hidden" name="mode" value="login" />
+  <div class="input-group">
+  <span class="input-group-addon"><i class="fa fa-user"></i></span>
+  <input type="text" name="username" class="form-control" placeholder="{{lang_user_name}}" />
+  </div><br/>
+  <div class="input-group">
+  <span class="input-group-addon"><i class="fa fa-key"></i></span>
+  <input type="password" name="password" class="form-control" placeholder="{{lang_password}}" />
+  </div><br/>
+  <input type="submit" name="login" value="{{lang_login}}" class="btn btn-md btn-primary"/>
+  <input type="hidden" name="redirect" value="{{baseurl}}/core.php" />
+</form>
+{{/is_logged}}
+
+</div>
+</div>
+          
+{{#no_menuz}}
+  {{^hide_test_menus}}
+  <div class="normal argos_test_menu">
+  <div class="header"><i class="fa fa-bars"></i> {{lang_test_menu}}</div>
+  <div class="body">
+    {{&lang_test_menu_text}}
+  </div>
+  </div>
+  {{/hide_test_menus}}
+{{/no_menuz}}
+{{^no_menuz}}
+{{#get_menus}}
+
+<div class="normal">
+<div class="header"><i class="fa fa-bars"></i> {{menu_title}}</div>
+<div class="body">
+  {{&menu_content}}
+</div>
+</div>
+{{/get_menus}}
+{{/no_menuz}}
+
+<!-- custom menuz -->
+{{#poll_enable}}
+<div class="normal">
+<div class="header"><i class="fa fa-bar-chart"></i> {{lang_poll}}</div>
+<div class="body">
+  {{&poll_print}}
+  {{poll_choose}}
+</div>
+</div>
+{{/poll_enable}}
+
+{{#servers_enable}}
+<div class="normal">
+<div class="header"><i class="fa fa-server"></i> {{lang_servers}}</div>
+<div class="body">
+  <div id="greyfish2">
+  <div style='text-align:center' class='greyfish-preload2'>
+  <b>Loading the servers...</b><br/>
+  <img src='http://i.imgur.com/RZHrcPw.gif' alt=''/>
+  </div>
+  </div>
+  <a href="{{baseurl}}/servers.php" class="btn btn-md btn-primary">{{lang_view_all_servers}}</a>
+</div>
+</div>
+{{/servers_enable}}
+<!-- end custom menuz -->
+
+{{&template_event_after_right_menu}} 
+</div>
+<div class="clear"></div>

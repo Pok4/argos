@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<!-- created by dedihost.org -->
+<html lang="en">
+  <head>
+    {{> meta }}
+  </head>
+<body class="skin-default">
+{{> header }}
+    
+{{> sidebar }}
+    
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+      <!-- Content Header (Page header) -->
+      <section class="content-header">
+        <h1>
+          {{lang_acp_banners_own_page_edit_info}}
+        </h1>
+        <hr class="border_acp"/>
+        
+        <div class='row'>
+          <div class='col-md-12'>
+            
+            <div class="box box-danger">
+              <div class="box-header with-border">
+                <h3 class="box-title">{{lang_acp_banners_own_page_edit_info}}</h3>
+              </div>
+              <div class="box-body">		
+              
+              {{^acp_edit_own_banners_id}}
+                <table class="table table-striped">
+                  <tr>
+                    <th>{{lang_picture}}</th>
+                    <th>{{lang_acp_type}}</th>
+                    <th>{{lang_author}}</th>
+                    <th>{{lang_acp_delete}}</th>
+                    
+                  </tr>
+                  {{#allbanners}}
+                  <tr class="own_banner-{{banner_id}}">
+                    <td><a href="edit_own_banners.php?id={{banner_id}}"><img alt="" class="img-responsive" src="{{&banner_img}}"/></a></td>
+                    <td>
+                      {{banner_type}}
+                    </td>
+                    <td>{{banner_author}}</td>
+                    <td><a href="ajax/remove_own_banners/?id={{banner_id}}" class="delete_own_banner" style="color:red"><i class="fa fa-times"></i></a></td>
+                  </tr>
+                  {{/allbanners}}
+                </table>
+              {{&no_have_banners}}
+              {{&pagination_banners}}
+              
+             {{/acp_edit_own_banners_id}}
+             {{#acp_edit_own_banners_id}}
+              <a href="edit_own_banners.php" class="btn btn-xs btn-success"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>
+              <br/><br/>
+              <form role="form" method="post">
+
+                <div class="input-group">
+                  <span class="input-group-addon"><i class="fa fa-image"></i></span>
+                  <input type="text" name="banner_img" value="{{acp_edit_own_banners_banner_img}}" placeholder="{{lang_acp_banners_ads_page_add_linkbanner}}" class="form-control" required>
+                </div>
+                <br/>
+                
+                <div class="input-group">
+                  <span class="input-group-addon"><i class="fa fa-info"></i></span>
+                  <input type="text" name="banner_title" value="{{acp_edit_own_banners_link_title}}" placeholder="{{lang_acp_banners_ads_page_add_titlelink}}" class="form-control" required>
+                </div>
+                <br/>
+                
+                <div class="input-group">
+                  <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                  <input type="text" name="banner_author" value="{{acp_edit_own_banners_author}}" placeholder="{{lang_acp_banners_own_page_add_author}}" class="form-control" required>
+                </div>
+                <br/>
+                
+                {{lang_acp_banners_ads_page_add_typebanner}}: <b>{{acp_edit_own_banners_banner_type}}</b> {{lang_own_banners_edit_type_explain}}<br/>
+                
+                <select name="type">
+                    <option value="0">{{lang_choose}}</option>
+                    <option value="468x60">468x60</option>
+                    <option value="88x31">88x31</option>
+                    <option value="userbar">userbar</option>
+                    <option value="728x90">728x90</option>
+                    <option value="200x200">200x200</option>
+                    <option value="120x240">120x240</option>
+                </select><br/><br/>
+
+                <button type="submit" name="acp_edit_own_banners_submit" class="btn btn-success">{{lang_acp_edit}}</button>
+                
+              </form>
+              <br/>
+              {{&acp_edit_own_banners_submit}}
+             {{/acp_edit_own_banners_id}}
+              
+              </div>
+            </div>
+          </div>
+        </div>
+              
+              
+        <ol class="breadcrumb">
+            <li><a href="index.php"><i class="fa fa-dashboard"></i> Admin</a></li>
+            <li class="active">{{lang_acp_banners_own_page_edit_info}}</li>
+        </ol>
+      </section>
+              
+              
+</div><!-- /.content-wrapper -->
+              
+{{> footer }}              

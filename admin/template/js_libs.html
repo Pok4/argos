@@ -1,0 +1,580 @@
+<script type="application/javascript">
+  
+  {{#is_index_page_acp}}
+  <!-- index page -->
+  //unique counter
+  google.load("visualization", "1", {packages:["corechart"]});
+  google.setOnLoadCallback(drawChart);
+  function drawChart() {var data = google.visualization.arrayToDataTable([
+    ['Day', 'Day'] ,
+    {{#daily_stats}}
+    ['{{stats_date}}',{{stats_visitors}}],
+    {{/daily_stats}}
+    ]);
+    
+    var options = {
+      //title: 'Company Performance',
+      hAxis: {title: 'Day', titleTextStyle: {color: 'red'}},
+      vAxis: {title: 'Unique total views', titleTextStyle: {color: '#FF0000'}, maxValue:'5', minValue:'1'},
+    };
+    
+    var chart = new google.visualization.ColumnChart(document.getElementById('chart_div'));
+    chart.draw(data, options);
+  } 
+  
+  <!-- social counter -->
+  $('.counter').ShareCounter({
+    url: '{{baseurl}}', // url for which you want show like counter
+    class_prefix: 'c_', // optional class prefix for counter elements, default: 'c_'
+  })
+
+  
+  {{/is_index_page_acp}}
+  
+  //sidebar active hover
+  jQuery(function() {
+    jQuery('.sidebar-menu li a').each(function() {
+      if (jQuery(this).attr('href')  === location.pathname.split('/').slice(-1)[0]) {
+        $(this).parent().addClass("active");
+        
+      }
+    });
+  });  
+  
+  <!-- pagination -->
+  $('.toggle-pagination').click(function(f) {
+    $(this).next('.pagination-responsive').slideToggle();
+    $(this).toggleClass('active');
+    f.preventDefault()
+  });	
+  
+  
+  {{#is_mails_page}}
+  <!-- remove pms -->
+  $('.delete_mail').click(function() {
+    if(confirm('Are you sure?!')) {
+      $.ajax({
+        url:        $(this).attr('href'), 
+        type:       'GET',
+        dataType:   'json', 
+        success:    function(data) {
+          alert(data['info']); 
+          $('.email-' + data['id']).remove();
+        }
+      });
+      return false; 
+      } else {
+      return false;
+    }
+  });
+  <!-- end -->
+  {{/is_mails_page}}  
+  
+  
+  {{#is_video_page_acp}}
+  <!-- delete video -->
+  $('.delete_video').click(function() {
+    if(confirm('Are you sure?!')) {
+      $.ajax({
+        url:        $(this).attr('href'), 
+        type:       'GET',
+        dataType:   'json', 
+        success:    function(data) {
+          alert(data['info']); 
+          $('.video-' + data['id']).remove();
+        }
+      });
+      return false; 
+      } else {
+      return false;
+    }
+  });
+  <!-- approve video -->
+  $('.approved_video').click(function() {
+    $.ajax({
+      url:        $(this).attr('href'), 
+      type:       'GET',
+      dataType:   'json', 
+      success:    function(data) {
+        alert(data['info']); 
+        location.reload();
+      }
+    });
+    return false; 
+    
+  });
+  <!-- end -->
+  {{/is_video_page_acp}} 
+  
+  {{#is_menus_page}}
+  <!-- remove menus -->
+  $('.delete_menu').click(function() {
+    if(confirm('Are you sure?!')) {
+      $.ajax({
+        url:        $(this).attr('href'), 
+        type:       'GET',
+        dataType:   'json', 
+        success:    function(data) {
+          alert(data['info']); 
+          $('.menu-' + data['id']).remove();
+        }
+      });
+      return false; 
+      } else {
+      return false;
+    }
+  });
+  <!-- end -->
+  {{/is_menus_page}}
+  
+  {{#is_vcat_page}}
+  <!-- remove vcats -->
+  $('.delete_video_cats').click(function() {
+    if(confirm('Are you sure?!')) {
+      $.ajax({
+        url:        $(this).attr('href'), 
+        type:       'GET',
+        dataType:   'json', 
+        success:    function(data) {
+          alert(data['info']); 
+          $('.vcat-' + data['id']).remove();
+        }
+      });
+      return false; 
+      } else {
+      return false;
+    }
+  });
+  <!-- end -->
+  {{/is_vcat_page}}
+  
+  {{#is_news_page}}
+  <!-- remove news -->
+  $('.delete_news').click(function() {
+    if(confirm('Are you sure?!')) {
+      $.ajax({
+        url:        $(this).attr('href'), 
+        type:       'GET',
+        dataType:   'json', 
+        success:    function(data) {
+          alert(data['info']); 
+          $('.news-' + data['id']).remove();
+        }
+      });
+      return false; 
+      } else {
+      return false;
+    }
+  });
+  <!-- end -->
+  {{/is_news_page}}
+  
+  {{#is_gallery_page_acp}}
+  <!-- remove pics -->
+  $('.delete_pic').click(function() {
+    if(confirm('Are you sure?!')) {
+      $.ajax({
+        url:        $(this).attr('href'), 
+        type:       'GET',
+        dataType:   'json', 
+        success:    function(data) {
+          alert(data['info']); 
+          $('.pic-' + data['id']).remove();
+        }
+      });
+      return false; 
+      } else {
+      return false;
+    }
+  });
+  <!-- end -->
+  {{/is_gallery_page_acp}}  
+  
+  {{#is_poll_page}}
+  <!-- remove polls -->
+  $('.delete_poll').click(function() {
+    if(confirm('Are you sure?!')) {
+      $.ajax({
+        url:        $(this).attr('href'), 
+        type:       'GET',
+        dataType:   'json', 
+        success:    function(data) {
+          alert(data['info']); 
+          $('.poll-' + data['id']).remove();
+        }
+      });
+      return false; 
+      } else {
+      return false;
+    }
+  });
+  <!-- end -->
+  {{/is_poll_page}}
+  
+  {{#is_page_page}}
+  <!-- remove page -->
+  $('.delete_page').click(function() {
+    if(confirm('Are you sure?!')) {
+      $.ajax({
+        url:        $(this).attr('href'), 
+        type:       'GET',
+        dataType:   'json', 
+        success:    function(data) {
+          alert(data['info']); 
+          $('.page-' + data['id']).remove();
+        }
+      });
+      return false; 
+      } else {
+      return false;
+    }
+  });
+  <!-- end -->
+  
+  //edit page
+  $( ".acp_edit_pages_submit" ).click(function() {
+  var form = $('.submitform');
+  $.ajax({
+    type: "POST",
+    dataType: "json",
+    url: "ajax/edit_pages_ajax", 
+    data:  form.serialize(),
+    success: function(mqy) {
+      $("#acp_edit_pages_print").show();
+      $("#acp_edit_pages_print").html(mqy['message']);
+      $('.darcy').val('');
+      $('.page_name').val('');
+      $('.page_title').val('');
+      $('.darcy').val(mqy['content']);
+      $('.page_name').val(mqy['page_name']);
+      $('.page_title').val(mqy['page_title']);
+               
+      setTimeout(function(){
+        if ($('#acp_edit_pages_print').length > 0) {
+          location.reload();
+        }
+      }, 1000)
+    } 
+  });
+  return false;
+  });
+  {{/is_page_page}}
+  
+  {{#is_servers_page}}
+  <!-- remove servers -->
+  $('.delete_server').click(function() {
+    if(confirm('Are you sure?!')) {
+      $.ajax({
+        url:        $(this).attr('href'), 
+        type:       'GET',
+        dataType:   'json', 
+        success:    function(data) {
+          alert(data['info']); 
+          $('.server-' + data['id']).remove();
+        }
+      });
+      return false; 
+      } else {
+      return false;
+    }
+  });
+  <!-- end -->
+  {{/is_servers_page}}
+  
+  {{#is_files_page_acp}}
+  <!-- remove files -->
+  $('.delete_file').click(function() {
+    if(confirm('Are you sure?!')) {
+      $.ajax({
+        url:        $(this).attr('href'), 
+        type:       'GET',
+        dataType:   'json', 
+        success:    function(data) {
+          alert(data['info']); 
+          $('.file-' + data['id']).remove();
+        }
+      });
+      return false; 
+      } else {
+      return false;
+    }
+  });
+  <!-- end -->
+  {{/is_files_page_acp}}
+  
+  {{#is_comments_page}}
+  <!-- remove comments -->
+  $('.delete_comment').click(function() {
+    if(confirm('Are you sure?!')) {
+      $.ajax({
+        url:        $(this).attr('href'), 
+        type:       'GET',
+        dataType:   'json', 
+        success:    function(data) {
+          alert(data['info']); 
+          $('.comment-' + data['id']).remove();
+        }
+      });
+      return false; 
+      } else {
+      return false;
+    }
+  });
+  <!-- end -->
+  {{/is_comments_page}}  
+  
+  {{#is_sliders_page}}
+  <!-- remove sliders -->
+  $('.delete_slider').click(function() {
+    if(confirm('Are you sure?!')) {
+      $.ajax({
+        url:        $(this).attr('href'), 
+        type:       'GET',
+        dataType:   'json', 
+        success:    function(data) {
+          alert(data['info']); 
+          $('.slider-' + data['id']).remove();
+        }
+      });
+      return false; 
+      } else {
+      return false;
+    }
+  });
+  <!-- end -->
+  {{/is_sliders_page}}
+  
+  {{#is_ownbanners_page}}
+  <!-- remove own banners -->
+  $('.delete_own_banner').click(function() {
+    if(confirm('Are you sure?!')) {
+      $.ajax({
+        url:        $(this).attr('href'), 
+        type:       'GET',
+        dataType:   'json', 
+        success:    function(data) {
+          alert(data['info']); 
+          $('.own_banner-' + data['id']).remove();
+        }
+      });
+      return false; 
+      } else {
+      return false;
+    }
+  });
+  <!-- end -->
+  {{/is_ownbanners_page}} 
+  
+  {{#is_banners_page}}
+  <!-- remove banners -->
+  $('.delete_banner').click(function() {
+    if(confirm('Are you sure?!')) {
+      $.ajax({
+        url:        $(this).attr('href'), 
+        type:       'GET',
+        dataType:   'json', 
+        success:    function(data) {
+          alert(data['info']); 
+          $('.banner-' + data['id']).remove();
+        }
+      });
+      return false; 
+      } else {
+      return false;
+    }
+  });
+  <!-- end -->
+  {{/is_banners_page}}
+  
+  {{#is_access_page_acp}}
+  <!-- remove access -->
+  $('.delete_access').click(function() {
+    if(confirm('Are you sure?!')) {
+      $.ajax({
+        url:        $(this).attr('href'), 
+        type:       'GET',
+        dataType:   'json', 
+        success:    function(data) {
+          alert(data['info']); 
+          $('.user_access-' + data['id']).remove();
+        }
+      });
+      return false; 
+      } else {
+      return false;
+    }
+  });
+  <!-- end -->    
+  {{/is_access_page_acp}}
+  
+  {{#is_filesadd_page}}
+  //file system
+  var select_input = 0;
+  var select_input2 = 0;
+	
+  $("#dropdown_game").on("change", function () {
+    if($('#dropdown_game').val() != '0') {
+      select_input = 1
+    } 
+  });
+  $("#dropdown_type").on("change", function () {
+    if($('#dropdown_type').val() != '0') {
+      select_input2 = 1
+      check();
+    } 
+  });
+  function check() {
+    if(select_input == 1 && select_input2 == 1) {
+      $('#game').submit();
+    }
+  }
+  <!-- end -->
+  {{/is_filesadd_page}}
+  
+  {{#is_html_page}}
+  //html area
+	
+  var selected_file ="";
+  editAreaLoader.init({
+    id : "textarea_1"		// textarea id
+    ,language: "bg"
+    ,start_highlight: true		// to display with highlight mode on start-up
+    ,is_editable: true
+    ,toolbar:  "charmap, |, search, go_to_line, |, undo, redo, |, select_font, |, change_smooth_selection, highlight, reset_highlight, |, help"
+    ,syntax_selection_allow: "css,html,js,php"  
+  });
+  
+  $('.htmlfiles').on('change', function() {
+    selected_file = this.value;
+    $.get(this.value, function(data) {
+      editAreaLoader.openFile('textarea_1', {id: this.value, text: data, syntax: 'php', title: 'file'});
+      editAreaLoader.setValue('textarea_1', data);
+    });
+    
+    $( ".submit_html" ).click(function() {
+      var form = $('.submitform');
+      var selected_content =  editAreaLoader.getValue('textarea_1');
+      $.ajax({
+        type: "POST", 
+        url: "ajax/html_editor_save",
+        data: {content:selected_content,html_file:selected_file},
+        success: function(mqy) {
+          $("#res1").html(mqy);
+        } 
+      });
+      return false;
+    });
+    
+  });
+  <!-- end -->
+{{/is_html_page}}
+
+{{#is_configure_page}}
+$(".auto_chat_delete").on("click", function(){
+var check = $(this).prop("checked");
+  if(check) {
+    if($('.chat_messages_needed').length < 1) {
+      $('<input type="text" class="form-control chat_messages_needed" value="{{chat_auto_delete_after}}" placeholder="{{lang_acp_config_auto_chat_delete_after}}" name="chat_auto_delete_after"/>').insertAfter($('#chat_auto_delete_after'));
+    }
+  } else {
+    $('.chat_messages_needed').remove();
+  }
+});
+if($(".auto_chat_delete").is(':checked')){
+  if($('.chat_messages_needed').length < 1) {
+      $('<input type="text" class="form-control chat_messages_needed" value="{{chat_auto_delete_after}}" placeholder="{{lang_acp_config_auto_chat_delete_after}}" name="chat_auto_delete_after"/>').insertAfter($('#chat_auto_delete_after'));
+  } 
+} else {
+  $('.chat_messages_needed').remove();
+}
+
+$(".phpbb_news").on("click", function(){
+var check = $(this).prop("checked");
+  if(check) {
+    if($('.forum_id_for_phpbb_news').length < 1) {
+      $('<input type="text" class="form-control forum_id_for_phpbb_news" value="{{phpbb_news_forum_id}}" placeholder="Forum ID" name="phpbb_news_forum_id"/>').insertAfter($('#forum_id_for_phpbb_news'));
+    }
+  } else {
+    $('.forum_id_for_phpbb_news').remove();
+  }
+});
+if($(".phpbb_news").is(':checked')){
+  if($('.forum_id_for_phpbb_news').length < 1) {
+      $('<input type="text" class="form-control forum_id_for_phpbb_news" value="{{phpbb_news_forum_id}}" placeholder="Forum ID" name="phpbb_news_forum_id"/>').insertAfter($('#forum_id_for_phpbb_news'));
+  } 
+} else {
+  $('.forum_id_for_phpbb_news').remove();
+}
+{{/is_configure_page}}
+
+{{#is_css_page}}
+function css_ajax() {
+  var template = $( ".choose_template option:selected" ).text();
+  $.ajax({
+  type: "POST", 
+  url: "ajax/custom_css",
+  data: {choosen_template:template},
+  success: function(data) {
+    editor.setValue(data)
+  } 
+  });
+}
+{{/is_css_page}}
+
+{{#is_lang_page}}
+function lang_ajax() {
+  var choosen_lang_file = $( ".choose_lang_file option:selected" ).text();
+  $.ajax({
+  type: "POST", 
+  url: "ajax/custom_lang",
+  data: {choosen_lang:choosen_lang_file},
+  success: function(data) {
+    editor.setValue(data)
+  } 
+  });
+}
+{{/is_lang_page}}
+
+{{#is_ext_page_acp}}
+<!-- ext updater -->
+$('.ext_update').click(function() {
+    if(confirm('Are you sure?!')) {
+      $.ajax({
+        url:        $(this).attr('href'), 
+        type:       'GET',
+        success:    function(data) {
+          location.reload();
+        }
+      });
+      return false; 
+      } else {
+      return false;
+    }
+});
+<!-- end -->
+{{/is_ext_page_acp}}  
+
+{{#is_jquery_js_page_acp}}
+  <!-- remove jquery_js -->
+  $('.delete_js_jquery').click(function() {
+    if(confirm('Are you sure?!')) {
+      $.ajax({
+        url:        $(this).attr('href'), 
+        type:       'GET',
+        dataType:   'json', 
+        success:    function(data) {
+          alert(data['info']); 
+          $('.js-' + data['id']).remove();
+        }
+      });
+      return false; 
+      } else {
+      return false;
+    }
+  });
+  <!-- end -->    
+{{/is_jquery_js_page_acp}}
+
+
+{{&template_admin_event_inside_script_tag}}
+</script>

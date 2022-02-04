@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<!-- created by dedihost.org -->
+<html lang="en">
+  <head>
+    {{> meta }}
+  </head>
+<body class="skin-default">
+{{> header }}
+    
+{{> sidebar }}
+    
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+      <!-- Content Header (Page header) -->
+      <section class="content-header">
+        <h1>
+          {{lang_acp_gallery_page_info}}
+        </h1>
+        <hr class="border_acp"/>
+        
+        <div class='row'>
+          <div class='col-md-12'>
+            
+            <div class="box box-danger">
+              <div class="box-header with-border">
+                <h3 class="box-title">{{lang_acp_gallery_page_info}}</h3>
+              </div>
+              <div class="box-body">		   
+                
+                <table class="table table-striped">
+                  <tr>
+                    <th>{{lang_picture}}</th>
+                    <th>{{lang_uploader}}</th>
+                    <th>{{lang_acp_delete}}</th>
+                    
+                  </tr>
+                  {{#allpics}}
+                  <tr class="pic-{{pic_id}}">
+                    <td><img src="../uploads/images/{{pic_link}}" alt="" width="160" height="120"/></td>
+                    <td>
+                      {{pic_uploader}}
+                    </td>
+                    <td><a href="ajax/remove_pic/?id={{pic_id}}" class="delete_pic" style="color:red"><i class="fa fa-times"></i></a></td>
+                  </tr>
+                  {{/allpics}}
+                </table>
+                {{&no_have_pics}}
+                {{&pagination_pics}}
+                
+              </div>
+            </div>
+          </div>
+        </div>
+              
+              
+        <ol class="breadcrumb">
+            <li><a href="index.php"><i class="fa fa-dashboard"></i> Admin</a></li>
+            <li class="active">{{lang_acp_gallery_page_info}}</li>
+        </ol>
+      </section>
+              
+              
+</div><!-- /.content-wrapper -->
+              
+{{> footer }}              

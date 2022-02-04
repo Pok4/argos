@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<!-- created by dedihost.org -->
+<html lang="en">
+  <head>
+    {{> meta }}
+  </head>
+<body class="skin-default">
+{{> header }}
+    
+{{> sidebar }}
+    
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+      <!-- Content Header (Page header) -->
+      <section class="content-header">
+        <h1>
+          {{lang_acp_polls_page_info}}
+        </h1>
+        <hr class="border_acp"/>
+        
+        <div class='row'>
+          <div class='col-md-12'>
+            
+            <div class="box box-danger">
+              <div class="box-header with-border">
+                <h3 class="box-title">{{lang_acp_polls_page_about}}</h3>
+              </div>
+              <div class="box-body">		   
+               
+                {{^acp_edit_polls_id}}
+                  <table class="table table-striped">
+                    <tr>
+                      <th>{{lang_acp_polls_page_question}}</th>
+                      <th>{{lang_acp_polls_page_voters}}</th>
+                      <th>{{lang_acp_delete}}</th>
+                    </tr>
+                    {{#allpolls}}
+                    <tr class="poll-{{poll_id}}">
+                      <td><a href="edit_polls.php?id={{poll_id}}">{{poll_question}}</a></td>
+                      <td>
+                        {{poll_votes}}
+                      </td>
+                      <td><a href="ajax/remove_poll/?id={{poll_id}}" class="delete_poll" style="color:red"><i class="fa fa-times"></i></a></td>
+                    </tr>
+                    {{/allpolls}}
+                  </table>
+                {{&no_have_polls}}
+                {{&pagination_polls}}
+                
+                {{/acp_edit_polls_id}}
+                {{#acp_edit_polls_id}}
+                  <a href="edit_polls.php" class="btn btn-xs btn-success"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>
+                  <br/><br/>
+                  <div class="alert alert-warning"><i class="fa fa-exclamation-triangle"></i> {{lang_ajax_poll_edit_info_restart}}</div>
+                  <br/>
+                  <form role="form" method="post">
+
+                    <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-pencil"></i></span>
+                    <input type="text" name="poll_question" value="{{acp_edit_polls_question}}" placeholder="{{lang_acp_polls_page_question}}" class="form-control" required>
+                    </div>
+                    <br/>
+
+                    <textarea class="form-control" rows="5" name="poll_answer">{{acp_edit_polls_poll_print}}</textarea>
+                    <br/>
+                    <button type="submit" name="acp_edit_polls_submit" class="btn btn-success">{{lang_acp_edit}}</button>
+                    
+                  </form>
+                  <br/>
+                  {{&acp_edit_polls_submit}}
+                {{/acp_edit_polls_id}}
+              </div>
+            </div>
+          </div>
+        </div>
+              
+              
+          <ol class="breadcrumb">
+              <li><a href="index.php"><i class="fa fa-dashboard"></i> Admin</a></li>
+              <li class="active">{{lang_acp_polls_page_info}}</li>
+          </ol>
+      </section>
+              
+              
+</div><!-- /.content-wrapper -->
+              
+{{> footer }}              

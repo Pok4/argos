@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<!-- created by dedihost.org -->
+<html lang="en">
+  <head>
+    {{> meta }}
+  </head>
+<body class="skin-default">
+{{> header }}
+    
+{{> sidebar }}
+    
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+      <!-- Content Header (Page header) -->
+      <section class="content-header">
+        <h1>
+          {{lang_acp_aside_config}}
+        </h1>
+        <hr class="border_acp"/>
+        
+        <div class='row'>
+          <div class='col-md-12'>
+            
+            <div class="box box-danger">
+              <div class="box-header with-border">
+                <h3 class="box-title">{{lang_acp_config_about}}</h3>
+              </div>
+              <div class="box-body">		
+                
+                <form method="post" style="max-width:700px">
+                  
+                  <a href="#" data-toggle="tooltip" title="{{lang_acp_config_about_sitetitle}}"><i class="fa fa-question-circle"></i></a>
+                  <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-globe"></i></span>
+                    <input type="text" name="site_name" value="{{site_name_acp}}" class="form-control" required />
+                  </div>
+                  
+                  <a href="#" data-toggle="tooltip" title="{{lang_acp_config_about_small_text_header}}"><i class="fa fa-question-circle"></i></a>
+                  <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-globe"></i></span>
+                    <input type="text" name="small_text_header" value="{{logo_text_small_acp}}" class="form-control" required />
+                  </div>
+                  
+                  <a href="#" data-toggle="tooltip" title="{{lang_acp_config_about_header}}"><i class="fa fa-question-circle"></i></a>
+                  <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-globe"></i></span>
+                    <input type="text" name="big_text_header" value="{{logo_text_big_acp}}" class="form-control" required />
+                  </div>
+                  
+                  <a href="#" data-toggle="tooltip" title="{{lang_acp_config_about_favicon}}"><i class="fa fa-question-circle"></i></a>
+                  <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-file-image-o"></i></span>
+                    <input type="text" name="favicon" value="{{favicon_acp}}" class="form-control" />
+                  </div>
+                  
+                  <a href="#" data-toggle="tooltip" title="{{lang_acp_config_about_contact}}"><i class="fa fa-question-circle"></i></a>
+                  <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+                    <input type="text" name="admin_mail" value="{{admin_email_acp}}" class="form-control" required />
+                  </div>
+                  
+                  <a href="#" data-toggle="tooltip" title="Facebook link {{lang_acp_config_about_socials}}"><i class="fa fa-question-circle"></i></a>
+                  <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-facebook"></i></span>
+                    <input type="text" name="fb_link" value="{{fb_link_acp}}" class="form-control" />
+                  </div>
+                  
+                  <a href="#" data-toggle="tooltip" title="Twitter link {{lang_acp_config_about_socials}}"><i class="fa fa-question-circle"></i></a>
+                  <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-twitter"></i></span>
+                    <input type="text" name="tw_link" value="{{tw_link_acp}}" class="form-control" />
+                  </div>
+                  
+                  <a href="#" data-toggle="tooltip" title="Google+ link {{lang_acp_config_about_socials}}"><i class="fa fa-question-circle"></i></a>
+                  <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-google-plus"></i></span>
+                    <input type="text" name="goo_link" value="{{goo_link_acp}}" class="form-control" />
+                  </div>
+                  
+                  
+                  <a href="#" data-toggle="tooltip" title="{{lang_acp_config_about_site}}"><i class="fa fa-question-circle"></i></a>
+                  <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-info"></i></span>
+                    <textarea name="head_box_text" class="form-control">{{head_box_text_acp}}</textarea>
+                  </div>
+                  
+                  <a href="#" data-toggle="tooltip" title="{{lang_acp_config_important_link}}"><i class="fa fa-question-circle"></i></a>
+                  <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-info"></i></span>
+                    <input type="text" name="last_news_link" value="{{last_news_link_acp}}" class="form-control" />
+                  </div>
+                  
+                  <a href="#" data-toggle="tooltip" title="{{lang_acp_config_important_link_name}}"><i class="fa fa-question-circle"></i></a>
+                  <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-info"></i></span>
+                    <input type="text" name="last_news_name" value="{{last_news_name_acp}}" class="form-control" />
+                  </div>
+                  
+                  <a href="#" data-toggle="tooltip" title="Google Analytics ID, example: UA-52018522-1"><i class="fa fa-question-circle"></i></a>
+                  <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-google"></i></span>
+                    <input type="text" name="google_analytics" value="{{google_analytics_acp}}" placeholder="Google Analytics ID" class="form-control" />
+                  </div>
+                  
+                  <a href="#" data-toggle="tooltip" title="Google Site Verify Key, example: chKyhxLNUlbPPJZF-_RCy3qi5Ss8xIXTvHH67SXCLqc"><i class="fa fa-question-circle"></i></a>
+                  <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-google"></i></span>
+                    <input type="text" name="google_site_verify" value="{{google_site_verify_acp}}" placeholder="Google Site Verify Key" class="form-control" />
+                  </div> 
+                  
+                  <a href="#" data-toggle="tooltip" title="{{lang_acp_config_news_per_page}}"><i class="fa fa-question-circle"></i></a>
+                  <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-newspaper-o"></i></span>
+                    <input type="text" name="news_per_page" value="{{news_per_page}}" placeholder="{{lang_acp_config_news_per_page}}" class="form-control" />
+                  </div>
+
+                  <a href="#" data-toggle="tooltip" title="{{lang_acp_config_files_per_page}}"><i class="fa fa-question-circle"></i></a>
+                  <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-files-o"></i></span>
+                    <input type="text" name="files_per_page" value="{{files_per_page}}" placeholder="{{lang_acp_config_files_per_page}}" class="form-control" />
+                  </div>
+                  
+                  <a href="#" data-toggle="tooltip" title="{{lang_acp_config_videos_per_page}}"><i class="fa fa-question-circle"></i></a>
+                  <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-video-camera"></i></span>
+                    <input type="text" name="videos_per_page" value="{{videos_per_page}}" placeholder="{{lang_acp_config_videos_per_page}}" class="form-control" />
+                  </div>
+                  
+                  <a href="#" data-toggle="tooltip" title="{{lang_acp_config_pics_per_page}}"><i class="fa fa-question-circle"></i></a>
+                  <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-picture-o"></i></span>
+                    <input type="text" name="pictures_per_page" value="{{pics_per_page}}" placeholder="{{lang_acp_config_pics_per_page}}" class="form-control" />
+                  </div>
+                  
+                  <a href="#" data-toggle="tooltip" title="Banlist URL"><i class="fa fa-question-circle"></i></a>
+                  <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-ban"></i></span>
+                    <input type="text" name="banlist_url" value="{{banlist_url_acp}}" placeholder="Banlist URL" class="form-control" />
+                  </div>
+                  
+                  <label class="ios7-switch">
+                    <input name="gallery_enable" type="checkbox" {{gallery_enable_acp}}>
+                    <span></span>
+                    {{lang_acp_config_gallery}}
+                  </label>
+                  <br/>
+                  <label class="ios7-switch">
+                    <input name="chat_enable" type="checkbox" {{chat_enable_acp}}>
+                    <span></span>
+                    {{lang_acp_config_chat}}
+                  </label>
+                  <br/>
+                  <label class="ios7-switch">
+                    <input name="img_upload_enable" type="checkbox" {{img_upload_enable_acp}}>
+                    <span></span>
+                    {{lang_acp_config_upload_images}}
+                  </label>
+                  <br/>
+                  <label class="ios7-switch">
+                    <input name="upload_enable" type="checkbox" {{file_upload_enable_acp}}>
+                    <span></span>
+                    {{lang_acp_config_view_files}}
+                  </label>
+                  <br/>
+                  <label class="ios7-switch">
+                    <input name="poll_enable" type="checkbox" {{poll_enable_acp}}>
+                    <span></span>
+                    {{lang_acp_config_poll}}
+                  </label>
+                  <br/>
+                  <label class="ios7-switch">
+                    <input name="stats_enable" type="checkbox" {{stats_enable_acp}}>
+                    <span></span>
+                    {{lang_acp_config_forum_stats}}
+                  </label>
+                  <br/>
+                  <label class="ios7-switch">
+                    <input name="socials_enable" type="checkbox" {{socials_enable_acp}}>
+                    <span></span>
+                    {{lang_acp_config_socials}}
+                  </label>
+                  <br/>
+                  <label class="ios7-switch">
+                    <input name="servers_enable" type="checkbox" {{servers_enable_acp}}>
+                    <span></span>
+                    {{lang_acp_config_servers}}
+                  </label>
+                  <br/>
+                  <label class="ios7-switch">
+                    <input name="cookie_policy_enable" type="checkbox" {{cookie_policy_enable_acp}}>
+                    <span></span>
+                    {{lang_acp_config_cookie_policy}}
+                  </label>
+                  <br/>
+                  <label class="ios7-switch">
+                    <input name="video_enable" type="checkbox" {{video_enable_acp}}>
+                    <span></span>
+                    {{lang_acp_config_upload_videos}}
+                  </label>
+                  <br/>
+                  <label class="ios7-switch">
+                    <input name="rating_enable" type="checkbox" {{rating_enable_acp}}>
+                    <span></span>
+                    {{lang_acp_config_rating_system}}
+                  </label>
+                  <br/>
+                  <label class="ios7-switch">
+                    <input name="hide_test_menus" type="checkbox" {{hide_test_menus_enable_acp}}>
+                    <span></span>
+                    {{lang_acp_config_hide_test_menus}}
+                  </label>
+                  <br/>
+                  <label class="ios7-switch">
+                    <input name="auto_chat_delete_enable" class="auto_chat_delete" type="checkbox" {{auto_chat_delete_enable_acp}}>
+                    <span></span>
+                    {{lang_acp_config_auto_chat_delete}}
+                  </label>
+                  <div id="chat_auto_delete_after"></div>
+                  <br/>
+                  <label class="ios7-switch">
+                    <input name="phpbb_news_enable" class="phpbb_news" type="checkbox" {{phpbb_news_enable_acp}}>
+                    <span></span>
+                    {{lang_acp_config_phpbb_news}}
+                  </label>
+                  <div id="forum_id_for_phpbb_news"></div>
+                  <br/>
+                  {{lang_acp_config_language}}:<br/>
+                  <select name="language_now">
+                    <option value="bg" {{default_lang_bg}}>{{lang_acp_config_lang_bg}}</option>
+                    <option value="en" {{default_lang_en}}>{{lang_acp_config_lang_en}}</option>
+                    <option value="ru" {{default_lang_ru}}>{{lang_acp_config_lang_ru}}</option>
+                  </select><br/>
+                  
+                  {{lang_acp_config_style}}:<br/>
+                  <select name="style_now">
+                  {{&styles_name}}
+                  </select><br/>
+                  
+                  <br/>
+                  <input type="submit" name="submit_changes" class="btn btn-md btn-success" value="{{lang_acp_change}}"/>
+                  
+                  </form>	
+                  
+                  {{#site_changes}}
+                  <br/>
+                  <div class="alert alert-success"><i class="fa fa-check"></i> {{site_changes}}</div>
+                  <meta http-equiv="refresh" content="1">
+                  {{/site_changes}}
+                  
+                  <hr/>
+                  
+                  <form method="post" style="display:inline-block">
+                    <input type="submit" name="submit_chat_del" value="{{lang_acp_delete_chat}}" class="btn btn-md btn-info"/>
+                  </form>
+                  
+                  <form method="post" style="display:inline-block">
+                    <input type="submit" name="submit_cache" value="{{lang_acp_delete_cache}}" class="btn btn-md btn-danger"/>
+                  </form>
+                  
+                  {{#cache_delete}}
+                  <br/><br/>
+                  <div class="alert alert-success" style="max-width:300px"><i class="fa fa-check"></i> {{cache_delete}}</div>
+                  {{/cache_delete}}
+                  
+                  {{#chat_delete}}
+                  <br/><br/>
+                  <div class="alert alert-success" style="max-width:300px"><i class="fa fa-check"></i> {{chat_delete}}</div>
+                  {{/chat_delete}}
+                  
+                  </div>
+              </div>
+            </div>
+          </div>
+                  
+                  
+          <ol class="breadcrumb">
+              <li><a href="index.php"><i class="fa fa-dashboard"></i> Admin</a></li>
+              <li class="active">{{lang_acp_aside_config}}</li>
+          </ol>
+      </section>
+                  
+                  
+</div><!-- /.content-wrapper -->
+                  
+{{> footer }}                  

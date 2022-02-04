@@ -1,0 +1,30 @@
+#Important rules for our system
+Options -Multiviews -Indexes +FollowSymLinks
+
+#app.php instead of index.php
+DirectoryIndex core.php index.php index.html
+
+#If 404 - redirect to 404 page
+ErrorDocument 404 /404/index.php
+
+#ModRewrite ON
+RewriteEngine On  
+
+#News SEO Urls
+RewriteRule  ^topic_(.+?)$ core.php?id=$1
+
+#Router
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ core.php [QSA,L]
+ 
+#remove end trailing slash from urls
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_URI} /(.*)/$
+RewriteRule ^ /%1 [R=301,L]
+
+#Block ENV access
+<Files "config.env">
+   Order allow,deny
+    Deny from all
+</Files>

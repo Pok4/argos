@@ -1,0 +1,129 @@
+{{&template_admin_event_before_home}}
+
+<div class="alert alert-info"><i class="fa fa-clock-o" aria-hidden="true"></i> {{current_time}}</div>
+
+<!-- daily unique stats -->
+<div class='row'>
+  
+  <div class='col-md-4'>
+    
+    <div class="box box-danger">
+      <div class="box-header with-border">
+        <h3 class="box-title">{{lang_acp_unique_visits}}</h3>
+      </div>
+      <div class="box-body">		   
+        <div id="chart_div"></div>
+      </div>
+    </div>
+    
+  </div>
+  
+  
+  <!-- latest members -->
+  <div class='col-md-4'>
+    
+    <div class="box box-warning">
+      <div class="box-header with-border">
+        <h3 class="box-title">{{lang_acp_last_users}}</h3>
+      </div>
+      <div class="box-body no-padding">
+        <ul class="users-list clearfix">
+          {{#newest_members}}
+          <li>
+            <img src="{{new_user_ava}}" alt="User Image"/>
+            <a class="users-list-name" href="{{forum_path}}/memberlist.php?mode=viewprofile&amp;u={{new_userid}}">{{new_username}}</a>
+            <span class="users-list-date">{{new_user_regdate}}</span>
+          </li>
+          {{/newest_members}}
+        </ul>
+      </div>
+    </div>
+    
+  </div>
+  
+  <!-- latest members -->
+  <div class='col-md-4'>
+    
+    <div class="box box-info">
+      <div class="box-header with-border">
+        <h3 class="box-title">Social media {{lang_acp_stats}}</h3>
+      </div>
+      <div class="box-body">	
+        
+        Total SOCIAL SHARES :
+        <br/>
+        
+        <button class='btn btn-primary share s_vk' type='button'>
+          Vkontakte <span class='badge counter c_vk'></span>
+        </button><br/>
+        
+        <button class='btn btn-primary share s_facebook' type='button'>
+          Facebook <span class='badge counter c_facebook'></span>
+        </button> <br/>
+        
+        <button class='btn btn-primary share s_linkedin' type='button'>
+          Linkedin <span class='badge counter c_linkedin'></span>
+        </button><br/>
+        
+        <button class='btn btn-primary share s_pinterest' type='button'>
+          Pinterest <span class='badge counter c_pinterest'></span>
+        </button><br/>
+        
+        <button class='btn btn-primary share s_plus' type='button'>
+          Google + <span class='badge counter c_plus'></span>
+        </button>
+        
+      </div>
+    </div>
+    
+  </div>
+  
+</div> <!-- end row -->
+
+
+<div class="row">
+  
+  <div class='col-md-6'>
+    
+    <div class="box box-primary">
+      <div class="box-header with-border">
+        <h3 class="box-title">{{lang_acp_forum_stats}}</h3>
+      </div>
+      <div class="box-body">	
+        {{lang_acp_online_users}}: {{online_users}}<br/>
+        {{lang_acp_guests}}: {{online_users_anonymous}}<br/>
+        {{lang_acp_total_registered}}: {{total_users}}<br/>
+        {{lang_acp_total_topics}}: {{total_topics}}<br/>
+        {{lang_acp_total_forums}}: {{total_forums}}<br/>
+        {{lang_acp_total_posts}}: {{total_posts}}<br/>
+        {{lang_acp_total_topics_views}}: {{total_topics_views}}
+      </div>
+    </div>
+    
+  </div>
+  
+  <div class='col-md-6'>
+    
+    <div class="box box-info">
+      
+      <div class="box-header with-border">
+        <h3 class="box-title">{{lang_acp_weather}}</h3>
+      </div>
+      
+      <div class="box-body">	
+        <a href="https://www.accuweather.com/en/bg/sofia/51097/weather-forecast/51097" class="aw-widget-legal">
+        </a><div id="awcc1493888456709" class="aw-widget-current"   data-locationkey="" data-unit="c" data-language="en-us" data-useip="true" data-uid="awcc1493888456709"></div><script type="text/javascript" src="https://oap.accuweather.com/launch.js"></script>
+      </div>
+      
+    </div>
+    
+  </div>
+  
+ 
+  
+  
+</div> <!-- end row -->
+
+<div class="clear clearfix"></div>
+
+{{&template_admin_event_after_home}}

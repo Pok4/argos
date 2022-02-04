@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<!-- created by dedihost.org -->
+<html lang="en">
+  <head>
+    {{> meta }}
+  </head>
+<body class="skin-default">
+{{> header }}
+    
+{{> sidebar }}
+    
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+      <!-- Content Header (Page header) -->
+      <section class="content-header">
+        <h1>
+          {{lang_acp_vcats_edit_page_info}}
+        </h1>
+        <hr class="border_acp"/>
+        
+        <div class='row'>
+          <div class='col-md-12'>
+            
+            <div class="box box-danger">
+              <div class="box-header with-border">
+                <h3 class="box-title">{{lang_acp_vcats_title}}</h3>
+              </div>
+              <div class="box-body">		   
+                
+                {{^acp_edit_vcat_id}}
+                  <table class="table table-striped">
+                    <tr>
+                      <th>{{lang_acp_name}}</th>
+                      <th>{{lang_acp_delete}}</th>
+                    </tr>
+                    {{#allcats}}
+                    <tr class="vcat-{{vcat_id}}">
+                      <td><a href="edit_video_cat.php?id={{vcat_id}}">{{vcat_title}}</a></td>
+                      <td><a href="ajax/remove_video_cats/?id={{vcat_id}}" class="delete_video_cats" style="color:red"><i class="fa fa-times"></i></a></td>
+                    </tr>
+                    {{/allcats}}
+                  </table>
+                  {{&no_have_cats}}
+                  {{&pagination_cats}}
+                {{/acp_edit_vcat_id}}
+                {{#acp_edit_vcat_id}}
+                  <a href="edit_video_cat.php" class="btn btn-xs btn-success"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>
+                  <br/><br/>
+                  <div class="alert alert-info">{{lang_video_cats_explain_about_change}}</div>
+                  <form role="form" method="post">
+
+                     <div class="form-group">
+                        <b>{{lang_acp_vcats_name_of_cat}}</b>
+                        <input type="text" class="form-control" value="{{acp_edit_vcats_category}}" placeholder="{{lang_acp_vcats_name_of_cat}}" name="vcat" style="max-width:200px" required>
+                     </div>
+
+                   
+                     <button type="submit" name="acp_edit_vcats_submit" class="btn btn-success">{{lang_acp_edit}}</button>
+                  </form>
+                  <br/>
+                  {{&acp_edit_vcats_submit}}                
+                {{/acp_edit_vcat_id}}
+              </div>
+            </div>
+            
+          </div>
+        </div>
+      
+		  
+      <ol class="breadcrumb">
+      <li><a href="index.php"><i class="fa fa-dashboard"></i> Admin</a></li>
+      <li class="active">{{lang_acp_vcats_title}}</li>
+      </ol>
+      </section>
+      
+      
+</div><!-- /.content-wrapper -->
+{{> footer }}      

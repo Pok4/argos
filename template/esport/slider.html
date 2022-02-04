@@ -1,0 +1,45 @@
+{{#no_sliders}}
+
+{{/no_sliders}}
+{{^no_sliders}}
+<div id="jumbotron-slider">
+            	
+{{#get_sliders}}
+{{#slider_is_link}}
+                <!-- JUMBOTRON ITEM - START -->       
+                <div class="item">
+                	<a href="{{slider_link}}" target="_blank">
+                        <div class="overlay-wrapper">
+                            <img src="{{slider_img}}" class="img-responsive" alt="{{slider_text}}">
+                            <span class="overlay"></span>
+                            <h2>Lorem Ipsum dolor<span>27 March 2014</span></h2>
+                        </div>
+                    </a>
+                </div>
+                <!-- JUMBOTRON ITEM - END -->     
+{{/slider_is_link}}
+{{^slider_is_link}}
+                <!-- JUMBOTRON ITEM - START -->       
+                <div class="item">
+                        <div class="overlay-wrapper">
+                            <img src="{{slider_img}}" class="img-responsive" alt="{{slider_text}}">
+                            <span class="overlay"></span>
+                            <h2>{{slider_text}}</h2>
+                        </div>
+                </div>
+                <!-- JUMBOTRON ITEM - END -->     
+{{/slider_is_link}}
+{{/get_sliders}}
+
+                
+            </div>
+{{/no_sliders}}
+
+        </div>
+    </div>
+
+<!-- main -->
+<div class="container">
+<section class="content-wrapper">
+{{&template_event_after_slider}}  
+<div class="row">

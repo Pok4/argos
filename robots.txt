@@ -1,0 +1,10 @@
+User-Agent: *
+Disallow: /greyfish/
+Disallow: /lang/
+Disallow: /cache/
+Disallow: /custom_page_content/
+Disallow: /documentation/
+Disallow: /includes/
+Disallow: /vendor/
+Disallow: /App/
+Allow: /

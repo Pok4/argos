@@ -1,0 +1,43 @@
+<div class="boxx argos_last_forum_topics">
+<div class="head"><div class="head_ico"><i class="fa fa-comment"></i></div><span class="head_title">{{lang_last}} 5 {{lang_topics_sm}}</span></div>
+<br/>
+<div class="table-responsive">
+  <table class="table">
+  <tr>
+    <td>{{lang_title}}</td>
+    <td>{{lang_author}}</td>
+    <td>{{lang_date}}</td>
+    <td>{{lang_views}}</td>
+	</tr>
+	{{#last_topics}}
+	<tr>
+    <td><a href="{{topic_link}}" target="_blank">{{ topic_titles }}</a></td>
+    <td style="color:#{{topic_user_color}}">{{ usernames }}</td>
+    <td>{{ topic_time }}</td>
+    <td>{{ topic_views }}</td>
+	</tr>
+	{{/last_topics}}
+  </table>
+</div>
+</div>
+
+{{#no_menuz2}}
+  {{^hide_test_menus}}
+  <div class="boxx argos_test_menu">
+    <div class="head"><div class="head_ico"><i class="fa fa-bars"></i></div><span class="head_title">{{lang_test_menu}}</span></div>
+    <div class="some_padding">
+    {{&lang_test_menu_text}}
+    </div>
+  </div>
+  {{/hide_test_menus}}
+{{/no_menuz2}}
+{{^no_menuz2}}
+{{#get_menus2}}
+<div class="boxx">
+  <div class="head"><div class="head_ico"><i class="fa fa-bars"></i></div><span class="head_title">{{menu_title2}}</span></div>
+  <div class="some_padding">
+  {{&menu_content2}}
+  </div>
+</div>
+{{/get_menus2}}
+{{/no_menuz2}}

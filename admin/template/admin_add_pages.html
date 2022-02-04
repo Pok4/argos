@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<!-- created by dedihost.org -->
+<html lang="en">
+  <head>
+    {{> meta }}
+  </head>
+<body class="skin-default">
+{{> header }}
+    
+{{> sidebar }}
+    
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+      <!-- Content Header (Page header) -->
+      <section class="content-header">
+        <h1>
+          {{lang_add_pages_page_info}}
+        </h1>
+        <hr class="border_acp"/>
+        
+        <div class='row'>
+          <div class='col-md-12'>
+            
+            <div class="box box-danger">
+              <div class="box-header with-border">
+                <h3 class="box-title">{{lang_add_pages_page_about}}</h3>
+              </div>
+              <div class="box-body">		   
+                
+                <form method="post" style="max-width:700px">
+                  
+                  <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-pencil"></i></span>
+                    <input type="text" name="page_name" placeholder="{{lang_add_pages_page_name_of_the_page}}" class="form-control" required>
+                  </div>{{lang_add_pages_page_name_explain}}
+                  <br/>
+                  
+                  <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-pencil"></i></span>
+                    <input type="text" name="page_title" placeholder="{{lang_add_pages_page_name_title}}" class="form-control" required>
+                  </div>
+                  {{lang_add_pages_page_title_explain}}
+                  <br/> 
+                  
+                  <select class="form-control" name="page_type">
+                    <option value="menu">{{lang_add_pages_page_type_1}}</option>
+                    <option value="wmenu">{{lang_add_pages_page_type_2}}</option>
+                  </select>
+                  {{lang_add_pages_page_type_explain}}
+                <br/>
+                
+                
+                <textarea class="darcy" data-editor="php" name="page_content" style="height:200px;width:100%" required></textarea><br/>
+                <input type="submit" name="submit_page" value="{{lang_send}}" class="btn btn-md btn-success"/>
+                
+                </form>		
+                {{#pages_add}}<br/> {{&pages_add}} {{/pages_add}}
+                
+              </div>
+            </div>   
+          </div>
+        </div>
+                
+                
+        <ol class="breadcrumb">
+                <li><a href="index.php"><i class="fa fa-dashboard"></i> Admin</a></li>
+                <li class="active">{{lang_add_pages_page_about}}</li>
+        </ol>
+      </section>
+                
+                
+</div><!-- /.content-wrapper -->
+{{> footer }}                

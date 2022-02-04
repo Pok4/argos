@@ -1,0 +1,48 @@
+<!-- Main Footer -->
+<footer class="main-footer">
+  <!-- To the right -->
+  <div class="pull-right hidden-xs">
+    by <b>val4o0o0</b>
+  </div>
+  <!-- Default to the left --> 
+  <strong>Copyright &copy; 2013-{{current_year}}.</strong> All rights reserved.
+</footer>
+
+</div><!-- ./wrapper -->
+
+
+<!-- REQUIRED JS SCRIPTS -->
+
+<!-- jQuery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.1/jquery.min.js"></script>
+<!-- Bootstrap -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<!-- AdminLTE App -->
+<script src="js/app.min.js"></script>
+<!-- html editor -->
+<script src="js/edit_area/edit_area_full.js"></script>
+<!-- darcy -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/ace/1.2.3/ace.js"></script>
+<script src="js/darcy/darcy.js"></script>
+<!-- custom by val4o0o0 -->
+<script src="//www.google.com/jsapi"></script> <!-- charts, unique stats -->
+<script src="js/socialshare.js"></script>
+{{&template_admin_event_after_jquery}}
+
+<!-- style switcher -->
+<script>
+function getCookie(e){var t=e+"=";var n=document.cookie.split(";");for(var r=0;r<n.length;r++){var i=n[r];while(i.charAt(0)==" ")i=i.substring(1,i.length);if(i.indexOf(t)==0)return i.substring(t.length,i.length)}return null};
+
+$("link.colour-switcher").attr("href", getCookie("colour-choice_acp")); 
+  $("a.switch").click(function() {
+  var style_sw=0; 
+  style_sw = $("link.colour-switcher").attr("href", $(this).attr("data-rel"));
+  document.cookie ='colour-choice_acp='+ $(this).attr("data-rel") +';expires=Wed, 31 Oct 3099 08:50:17 GMT;path=/';	
+  location.reload();
+});
+</script>
+
+{{> js_libs.html}}
+
+</body>
+</html>

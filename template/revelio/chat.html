@@ -1,0 +1,26 @@
+{{#chat_enable}}
+<div class="left chat_width">
+<div class="main_chat">
+{{#chat_main}}
+  <div class="post_chat"><div class="chat_ava">{{&chat_ava}}</div> <a href="{{viewprofile_from_chat}}" style="color:#{{chat_user_color}} !important" target="_blank">{{chat_user}}</a> {{lang_in}} {{chat_date}}: <span style='color:orange'>{{chat_text}}</span></div>
+{{/chat_main}}
+</div>
+</div>
+<div class="right chat_width_form">
+<form method="post">
+<div class="chat_form_bgr">
+{{#is_logged}}
+  <input type="hidden" name="usernamec" class="usernamec" value="{{username}}"/>
+  <textarea id="emoticons_here" name="message" class="chat_msg"></textarea>
+  <input type="submit" name="submit_chat" style="margin-left:5px" value="{{lang_send}}" class="btn btn-xs btn chat_submit"/>
+{{/is_logged}}
+{{^is_logged}}
+  <textarea name="message" class="chat_msg">{{lang_logged_to_write}}</textarea>
+{{/is_logged}}
+</div>
+</form>
+</div>
+<div class="clear"></div>
+{{/chat_enable}}
+
+{{&template_event_after_chat}}

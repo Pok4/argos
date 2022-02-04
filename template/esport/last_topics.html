@@ -1,0 +1,39 @@
+<div class="box sidebar-box widget-wrapper argos_last_forum_topics">
+<h3>{{lang_last}} 5 {{lang_topics_sm}}</h3>
+<br/>
+<div class="table-responsive">
+  <table class="table">
+  <tr>
+    <td>{{lang_title}}</td>
+    <td>{{lang_author}}</td>
+    <td>{{lang_date}}</td>
+    <td>{{lang_views}}</td>
+	</tr>
+	{{#last_topics}}
+	<tr>
+    <td><a href="{{topic_link}}" target="_blank">{{ topic_titles }}</a></td>
+    <td style="color:#{{topic_user_color}}">{{ usernames }}</td>
+    <td>{{ topic_time }}</td>
+    <td>{{ topic_views }}</td>
+	</tr>
+	{{/last_topics}}
+  </table>
+</div>
+</div>
+
+{{#no_menuz2}}
+  {{^hide_test_menus}}
+  <div class="box sidebar-box widget-wrapper argos_test_menu">
+    <h3>{{lang_test_menu}}</h3>
+    {{&lang_test_menu_text}}
+  </div>
+  {{/hide_test_menus}}
+{{/no_menuz2}}
+{{^no_menuz2}}
+{{#get_menus2}}
+<div class="box sidebar-box widget-wrapper">
+  <h3>{{menu_title2}}</h3>
+  {{&menu_content2}}
+</div>
+{{/get_menus2}}
+{{/no_menuz2}}

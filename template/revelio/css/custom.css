@@ -1,0 +1,8 @@
+/*custom css*/
+.no-slider #slider, .no-slider #header {
+	height: 230px;
+}
+
+#header {
+  background:url(../img/no-slider-bg.jpg);
+}

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<!-- created by dedihost.org -->
+<html lang="en">
+  <head>
+    {{> meta }}
+  </head>
+<body class="skin-default">
+{{> header }}
+    
+{{> sidebar }}
+    
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+      <!-- Content Header (Page header) -->
+      <section class="content-header">
+        <h1>
+          {{lang_acp_emails}}
+        </h1>
+        <hr class="border_acp"/>
+        
+        <div class='row'>
+          <div class='col-md-12'>
+            
+            <div class="box box-danger">
+              <div class="box-header with-border">
+                <h3 class="box-title">{{lang_acp_view_and_respond_to_mails}}</h3>
+              </div>
+              <div class="box-body">		   
+                
+                {{^acp_view_emails_id}}
+                  <div class="alert alert-info">{{lang_acp_emails_page_info}}</div>
+                  <table class="table table-striped">
+                    <tr>
+                      <th>{{lang_acp_subject}}</th>
+                      <th>{{lang_acp_sender}}</th>
+                      <th>{{lang_acp_date}}</th>
+                      <th style="width: 40px">{{lang_acp_responded}}</th>
+                      <th>{{lang_acp_delete}}</th>
+                      <th></th>
+                    </tr>
+                    {{#allpms}}
+                    <tr class="email-{{sender_id}}">
+                      <td><a href="view_emails.php?id={{sender_id}}">{{sender_question}}</a></td>
+                      <td>
+                        {{sender_username}}
+                      </td>
+                      <td>{{sender_date}}</td>
+                      <td><span class="badge bg-{{sender_badge}}">{{sender_respond}}</span></td>
+                      <td><a href="ajax/remove_mail/?id={{sender_id}}" class="delete_mail" data-mail="{{sender_id}}" style="color:red"><i class="fa fa-times"></i></a></td>
+                    </tr>
+                    {{/allpms}}
+                    </table>
+                    {{&no_have_pms}}
+                    {{&pagination_pm}}
+                {{/acp_view_emails_id}}
+                {{#acp_view_emails_id}}
+                  <a href="view_emails.php" class="btn btn-xs btn-success"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>
+                  <br/><br/>
+                  <div class="alert alert-info">{{lang_email_respond_info_about}}</div>
+                  <form method="post">
+
+                    <div class="input-group">
+                      <span class="input-group-addon"><i class="fa fa-question-circle"></i></span>
+                      <input type="text" name="his-question" value="{{acp_view_mails_question}}" class="form-control" readonly="readonly">
+                    </div>
+                    <br/>
+                    
+                    <div class="input-group">
+                      <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                      <input type="text" name="his_name" value="{{acp_view_mails_username}}" class="form-control" readonly="readonly">
+                    </div>
+                    <br/>
+                    
+                    <div class="input-group">
+                      <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+                      <input type="email" name="his_mail" value="{{acp_view_mails_email}}" class="form-control" readonly="readonly">
+                    </div>
+                    <br/>
+                    
+                    {{lang_email_the_others_text}}:<br/>
+                    <textarea class="form-control" rows="3" name="his_text" disabled>{{acp_view_mails_histext}}</textarea><br/>
+
+                    {{lang_your_name}}<br/>
+                    <div class="input-group">
+                      <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                      <input type="text" name="our_name" placeholder="{{lang_your_name}}" class="form-control" required>
+                    </div>
+                    <br/>
+
+                    {{lang_your_text}}<br/>
+                    <textarea class="form-control" rows="3" name="our_text" required></textarea><br/>
+                    <br/>
+                    <input type="submit" class="btn btn-md btn-success" name="acp_view_mails_submit" value="{{lang_send}}"/>
+
+                  </form>
+                  <br/>
+                  {{&acp_view_mails_submit}}
+                {{/acp_view_emails_id}}
+                  
+                </div>
+              </div>  
+            </div>
+          </div>
+                  
+                  
+          <ol class="breadcrumb">
+              <li><a href="index.php"><i class="fa fa-dashboard"></i> Admin</a></li>
+              <li class="active">{{lang_acp_emails}}</li>
+          </ol>
+      </section>
+                  
+                  
+</div><!-- /.content-wrapper -->
+                  
+{{> footer }}                  

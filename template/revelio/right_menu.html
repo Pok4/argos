@@ -1,0 +1,65 @@
+<div id="sidebar">
+  
+{{&template_event_before_right_menu}}  
+
+{{#no_menuz}}
+  {{^hide_test_menus}}
+  <div class="panel argos_test_menu">
+    <h2>{{lang_test_menu}}</h2>
+    <div class="panel-content">
+      
+      {{&lang_test_menu_text}}
+      
+    </div>
+  </div>
+  {{/hide_test_menus}}
+{{/no_menuz}}
+{{^no_menuz}}
+{{#get_menus}}
+<div class="panel">
+  <h2>{{menu_title}}</h2>
+  <div class="panel-content">
+    
+    {{&menu_content}}
+    
+  </div>
+</div>
+{{/get_menus}}
+{{/no_menuz}}
+
+<!-- custom menuz -->
+{{#poll_enable}}
+
+<div class="panel">
+  <h2>{{lang_poll}}</h2>
+  <div class="panel-content">
+    
+    {{&poll_print}}
+    {{poll_choose}}
+    
+  </div>
+</div>
+{{/poll_enable}}
+
+{{#servers_enable}}
+<div class="panel">
+  <h2>{{lang_servers}}</h2>
+  <div class="panel-content">
+    
+  <div id="greyfish2">
+  <div style='text-align:center' class='greyfish-preload2'>
+  <b>Loading the servers...</b><br/>
+  <img src='http://i.imgur.com/RZHrcPw.gif' alt=''/>
+  </div>
+  </div>
+  <a href="{{baseurl}}/servers.php" class="btn btn-md btn-primary" style="color:#fff !important">{{lang_view_all_servers}}</a>
+    
+  </div>
+</div>
+{{/servers_enable}}
+<!-- end custom menuz -->
+ 
+{{&template_event_after_right_menu}} 
+</div>
+
+<div class="clear"></div>

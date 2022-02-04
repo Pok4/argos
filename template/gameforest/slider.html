@@ -1,0 +1,36 @@
+<div id="wrapper"> <!-- wrapper -->
+  {{#no_sliders}}
+  
+  {{/no_sliders}}
+  {{^no_sliders}}  
+  <section class="border-bottom-1 border-grey-200 padding-top-15 padding-bottom-10">
+    <div class="owl-carousel owl-video">
+      {{#get_sliders}}
+      {{#slider_is_link}}
+      <div class="card card-video">
+        <div class="card-img">
+          <a href="{{slider_link}}"><img src="{{slider_img}}" style="max-height:200px" alt=""></a>
+          <div class="time">{{slider_text}}</div>
+        </div>
+      </div>
+			{{/slider_is_link}}
+      {{^slider_is_link}} 
+      <div class="card card-video">
+        <div class="card-img">
+          <img src="{{slider_img}}"  style="max-height:200px" alt="{{slider_text}}">
+          <div class="time">{{slider_text}}</div>
+        </div>
+      </div>
+      
+      {{/slider_is_link}}
+      
+      {{/get_sliders}}		 
+    </div>
+  </section>
+  
+  {{/no_sliders}}
+
+<div class="container">  
+{{&template_event_after_slider}}  
+<br/>
+

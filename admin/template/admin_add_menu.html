@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<!-- created by dedihost.org -->
+<html lang="en">
+  <head>
+    {{> meta }}
+  </head>
+<body class="skin-default">
+{{> header }}
+    
+{{> sidebar }}
+    
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+      <!-- Content Header (Page header) -->
+      <section class="content-header">
+        <h1>
+          {{lang_acp_menu_add_info}}
+        </h1>
+        <hr class="border_acp"/>
+        
+        <div class='row'>
+          <div class='col-md-12'>
+            
+            <div class="box box-danger">
+              <div class="box-header with-border">
+                <h3 class="box-title">{{lang_acp_menu_add_info}}</h3>
+              </div>
+              <div class="box-body">		   
+                
+                <form method="post" style="max-width:700px">
+                  
+                  <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-pencil"></i></span>
+                    <input type="text" name="menu_name" placeholder="{{lang_acp_menu_edit_menu_name}}" class="form-control" required>
+                  </div><br/>
+                  {{lang_acp_menu_add_position}}:
+                  <select name="position_menu" class="form-control" style="max-width:300px">
+                    <option value="left">{{lang_acp_menu_add_position_left}}</option>
+                    <option value="right">{{lang_acp_menu_add_position_right}}</option>
+                  </select>
+                  <br/>
+                  <b>{{lang_acp_menu_explain_html}}</b><br/>
+                  <textarea class="darcy" data-editor="php" name="menu_text" style="height:200px;width:100%" required></textarea><br/>
+                  
+                  <input type="submit" name="submit_menu" value="{{lang_send}}" class="btn btn-md btn-success"/>
+                  
+                </form>		
+                {{#menu_add}}<br/>{{&menu_add}} {{/menu_add}}
+                
+              </div>
+              </div>
+              
+              </div>
+        </div>
+              
+              
+        <ol class="breadcrumb">
+              <li><a href="index.php"><i class="fa fa-dashboard"></i> Admin</a></li>
+              <li class="active">{{lang_acp_menu_add_info}}</li>
+        </ol>
+      </section>
+              
+              
+</div><!-- /.content-wrapper -->
+{{> footer }}              
